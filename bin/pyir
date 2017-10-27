@@ -15,9 +15,9 @@ import time
 import tqdm
 
 if sys.version_info < (2, 7):
-    raise OSError("You need python 2.7.5 or higher, rerun with \%python2.7 /path/to/PyIg")
+    raise OSError("You need python 2.7.5 or higher, rerun with \%python2.7 /path/to/PyIr")
 
-class PyIg():
+class PyIr():
 
     def __init__(self, args):
 
@@ -220,9 +220,9 @@ if __name__ == '__main__':
 
     try:
 
-        args = pyir.arg_parse.PyIgArgumentParser().parse_arguments()
+        args = pyir.arg_parse.PyIrArgumentParser().parse_arguments()
         args['tmp_dir'] = tempfile.mkdtemp()
-        py_ig = PyIg(args)
+        py_ig = PyIr(args)
         py_ig.run()
 
     finally:

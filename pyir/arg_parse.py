@@ -7,20 +7,15 @@ import os
 import pkg_resources
 import subprocess
 
-class PyIgArgumentParser():
+class PyIrArgumentParser():
 
     def __init__(self):
 
         self.arg_parse = argparse.ArgumentParser(
             prog="pyir",
             description='''\
-                PyIR - Immunoglobulin and T-Cell receptor rearrangment software. \
-                It uses IgBLAST to call on V(D) and J genes. Then it recombines them to JSON format.\
-                PyIg is meant to be highly parralizable, so it uses multiple processors to call on \
-                multiple instances of BLAST making it ideal for high throughput sequencing. \
-                The JSON documents can be reconfigured to be uploaded to MySQL or NoSQL databases \
-                for efficient queries. In addition, you can use custom databases for V(D) and J gene lookup.
-                \nAuthors - Andre Branchizio, Jordan Willis
+                A Python wrapper for IgBLAST that scales to allow for the parallel processing of millions of reads on shared memory computers. All output is stored in a convenient JSON format.
+                \nAuthors - Andre Branchizio, Jordan Willis, Jessica Finn
         ''')
 
         necessary_arguments = self.arg_parse.add_argument_group(

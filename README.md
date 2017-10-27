@@ -1,7 +1,7 @@
 # PyIR
 Immunoglobulin and T-Cell receptor rearrangement software
 
-PyIg - Immunoglobulin and T-Cell receptor rearrangment software. It uses IgBLAST to call on V(D) and J genes. Then it recombines them to JSON format. PyIg is meant to be highly parralizable, so it uses multiple processors to call on multiple instances of BLAST making it ideal for high throughput sequencing. In addition, you can use custom databases for V(D) and J gene lookup.
+A Python wrapper for IgBLAST that scales to allow for the parallel processing of millions of reads on shared memory computers. All output is stored in a convenient JSON format.
 
 Requires
 =========
@@ -33,11 +33,13 @@ export PATH=$PY_USER_BIN:$PATH
 ```
 
 **Building the Database**
+
 ```bash
-mkdir pyig_data
-cd pyig_data
+mkdir pyir_data
+cd pyir_data
 
 # Download igblast internal and aux data
+# All data can be manually downloaded here ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release or use the following convenience commands
 wget -mnH --cut-dirs=4 ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/internal_data ./
 wget -mnH --cut-dirs=5 --directory-prefix=aux ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/optional_file/ ./
 
@@ -45,73 +47,134 @@ wget -mnH --cut-dirs=5 --directory-prefix=aux ftp://ftp.ncbi.nih.gov/blast/execu
 mkdir -p Ig/human Ig/mouse TCR/human TCR/mouse
 ```
 
-Go to http://www.imgt.org/vquest/refseqh.html
+Go to http://www.imgt.org/vquest/refseqh.html and copy your human/mouse heavy **and** light genes into the following files
 
+pyir_data/Ig/human/human_gl_V.fasta
+pyir_data/Ig/human/human_gl_D.fasta
+pyir_data/Ig/human/human_gl_J.fasta
+pyir_data/Ig/mouse/mouse_gl_V.fasta
+pyir_data/Ig/mouse/mouse_gl_D.fasta
+pyir_data/Ig/mouse/mouse_gl_J.fasta
+
+The following perl script can be used to convert your IMGT fasta into a fasta makeblastdb can evaluate
+
+```perl
+#!/usr/bin/perl  -w
+
+
+use strict;
+my $inputfile=shift (@ARGV);
+
+open(in_handle, $inputfile);
+
+while(my $line=<in_handle>){
+ #print ("line = $line\n");
+  if ($line =~ /^>.*\|(TR.+)\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|/){
+    print(">$1\n");
+  } elsif ($line =~ /^>.*\|(IG.+)\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|/){
+    print(">$1\n");
+  } else {
+    $line =~ s/\.+//g;
+    #get rid of dot
+    print("$line");
+  }
+}
+
+close (in_handle);
+```
+
+Copy this command into an executable file edit_imgt_file.pl and then run the following example command on all fastas.
+
+```bash
+perl edit_imgt_file.pl pyir_data/Ig/human/human_gl_V.fasta > pyir_data/Ig/human/human_gl_V
+```
+
+PyIr comes packaged with PyIr/bin/makeblastdb_linux and PyIr/bin/makeblastdb_darwin. If on linux use makeblastdb_linux and if on mac use makeblastdb_darwin.
+Run the following example command on all fastas generated from the previous perl command.
+
+```bash
+PyIR/bin/makeblastdb_linux -dbtype nucl -hash_index -parse_seqids -in pyir_data/Ig/human/human_gl_V
+```
+You can run PyIr the following way
+
+```bash
+pyir PyIr/testing/1K_Seqs.fasta -d pyir_data
+```
 
 Usage
 ========
-
-    pyir <input-fasta>
-
-Required Positional Arguments
---------
-
-
-The fasta file to be run through PyIg.
-
+```
+pyir [-h] -d DATABASE [-r {Ig,TCR}] [-s {human,mouse}]
+    [-nV NUM_V_ALIGNMENTS] [-nD NUM_D_ALIGNMENTS]
+    [-nJ NUM_J_ALIGNMENTS] [-mD MIND] [-cz CHUNK_SIZE] [-x EXECUTABLE]
+    [-m MULTI] [-o inputfile.json.gz] [--debug]
+    [--additional_field ADDITIONAL_FIELD] [-f json] [--pretty]
     query.fasta
 
-    ex.
-    PyIg -q query.fasta
+A Python wrapper for IgBLAST that scales to allow for the parallel processing
+of millions of reads on shared memory computers. All output is stored in a
+convenient JSON format. Authors - Andre Branchizio, Jordan Willis, Jessica
+Finn
 
+optional arguments:
+  -h, --help            show this help message and exit
 
-Database
---------
+Necessary Arguments:
+  Arguments that must be included
 
-    -d DATABASE, --database DATABASE
+  query.fasta           The fasta or fastq file to be run through the protocol
 
+File paths and types:
+  Database paths, search types
 
-Types
---------
-
-Arguments for the database to query
-
-    -r {Ig,TCR}, --receptor {Ig,TCR}
-                    The receptor you are analyzing, immunoglobulin or T cell Receptor - defaults to Ig
-    -s {human,rabbit}, --species {human,rabbit,mouse,rat,rhesus}
-                    The Species you are analyzing, defaults to human
-
-                    ex.
-
-                    /usr/local/bin/PyIg -s mouse -c light mouse_light_chains.fasta
+  -d DATABASE, --database DATABASE
+                        Path to your blast database directory
+  -r {Ig,TCR}, --receptor {Ig,TCR}
+                        The receptor you are analyzing, immunoglobulin or t
+                        cell receptor
+  -s {human,mouse}, --species {human,mouse}
+                        The Species you are analyzing
+  -cz CHUNK_SIZE, --chunk_size CHUNK_SIZE
+                        How many sequences to work on at once. The higher the
+                        number the more memory needed. If none specified chunk
+                        size will be determined based on input file size
 
 BLAST Specific Arguments:
---------
+  Arguments Specific to IgBlast
 
- Arguments Specific to IgBlast
+  -nV NUM_V_ALIGNMENTS, --num_V_alignments NUM_V_ALIGNMENTS
+                        How many V genes do you want to match?
+  -nD NUM_D_ALIGNMENTS, --num_D_alignments NUM_D_ALIGNMENTS
+                        How many D genes do you want to match?, does not apply
+                        for kappa and lambda
+  -nJ NUM_J_ALIGNMENTS, --num_J_alignments NUM_J_ALIGNMENTS
+                        How many J genes do you want to match?
+  -mD MIND, --minD MIND
+                        The amount of nucleotide matches needed for a D gene
+                        match. >= 5 right now
+  -x EXECUTABLE, --executable EXECUTABLE
+                        The location of IGBlastn binary, the default location
+                        is determined based on the OS and uses the igblast
+                        binaries included in this application.
 
-    -nV NUM_V_ALIGNMENTS, --num_V_alignments NUM_V_ALIGNMENTS
-                         How many V genes do you want to match?
-    -nD NUM_D_ALIGNMENTS, --num_D_alignments NUM_D_ALIGNMENTS
-                         How many D genes do you want to match?, does not apply for kappa and lambda
-    -nJ NUM_J_ALIGNMENTS, --num_J_alignments NUM_J_ALIGNMENTS
-                         How many J genes do you want to match?
-    -mD MIND, --minD MIND
-                        The amount of nucleotide matches needed for a D gene match. >= 5 right now
-    -x EXECUTABLE, --executable EXECUTABLE
-                         The location of IGBlastn, default is the version of igblastn included with this package
+General Arguments:
+  Output and Miscellaneous Arguments
 
-
-
-General Arguments
---------
-
-Output and Miscellaneous Arguments
-
-     -m MULTI, --multi MULTI
-          Multiprocess by the amount of CPUs you have. Or you can enter a number or type 0 to turn it off
-     -o OUT, --out OUT     Output_file_name
-     --debug Debug mode, this will not delete the temporary blast files and will print some other useful things, like which regions did not parse
-
-
-For details on using the database, creating your own database, and developing, see the [Wiki](https://github.com/jwillis0720/PyIg/wiki).
+  -m MULTI, --multi MULTI
+                        Multiprocess by the amount of CPUs you have. Or you
+                        can enter a number or type 0 to turn it off
+  -o inputfile.json.gz, --out inputfile.json.gz
+                        Output_file_name, defaults to inputfile.json.gz
+  --debug               Debug mode, this will not delete the temporary blast
+                        files and will print some other useful things, like
+                        which regions did not parse
+  --additional_field ADDITIONAL_FIELD
+                        A comma key,value pair for an additional field you
+                        want to add to the output json. Example '--
+                        additional_field=donor,10` adds a donor field with
+                        value 10.
+  -f json, --out-format json
+                        Output file format, defaults to json, but csv can be
+                        specified
+  --pretty              Pretty json output
+```
