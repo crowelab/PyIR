@@ -490,7 +490,7 @@ class AlignmentParser(BaseParser):
             if 'Query' in alignment.id:
                 self.query_line_alignment = alignment
 
-            filtered_hits = filter((lambda x: x['gene'] == alignment.id ), output['Hits'])
+            filtered_hits = list(filter((lambda x: x['gene'] == alignment.id ), output['Hits']))
             if filtered_hits:
                 filtered_hits[0]['gene_type'] = alignment.gene_type
                 filtered_hits[0]['alignment_start'] = alignment.start

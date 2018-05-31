@@ -9,7 +9,7 @@ import subprocess
 
 class PyIrArgumentParser():
 
-    def __init__(self):
+    def __init__(self, is_api=False):
 
         self.arg_parse = argparse.ArgumentParser(
             prog="pyir",
@@ -23,24 +23,26 @@ class PyIrArgumentParser():
             description="Arguments that must be included"
         )
 
-        necessary_arguments.add_argument(
-            'query',
-            type=file, metavar="query.fasta",
-            help='The fasta or fastq file to be run through the protocol'
-        )
+        if not is_api:
+            necessary_arguments.add_argument(
+                'query',
+                type=argparse.FileType('r'), metavar="query.fasta",
+                help='The fasta or fastq file to be run through the protocol'
+            )
 
         type_arguments = self.arg_parse.add_argument_group(
             title="File paths and types",
             description="Database paths, search types"
         )
 
-        type_arguments.add_argument(
-            '-d',
-            '--database',
-            type=str,
-            help="Path to your blast database directory",
-            required=True
-        )
+        if not is_api:
+            type_arguments.add_argument(
+                '-d',
+                '--database',
+                type=str,
+                help="Path to your blast database directory",
+                required=True
+            )
 
         type_arguments.add_argument(
             '-r',
@@ -150,7 +152,7 @@ class PyIrArgumentParser():
             choices=['json'],
             default="json",
             metavar="json",
-            help="Output file format, defaults to json, but csv can be specified"
+            help="Output file format, only json currently supported"
         )
 
         general_args.add_argument(
@@ -159,9 +161,20 @@ class PyIrArgumentParser():
             help="Pretty json output"
         )
 
-    def parse_arguments(self):
+        general_args.add_argument(
+            "--silent",
+            action='store_true',
+            help="Silence stdout"
+        )
+
+    def parse_arguments(self, overrides = None):
 
         arguments = self.arg_parse.parse_args()
+
+        if overrides != None:
+            for key in overrides:
+                setattr(arguments, key, overrides[key])
+
         self._validate_path(arguments.database)
         self._validate_executable(arguments.executable)
         return arguments.__dict__

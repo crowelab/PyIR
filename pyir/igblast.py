@@ -4,6 +4,7 @@ import subprocess
 import tempfile
 import Bio.SeqIO
 import signal
+import time
 
 def run(args, input_file_map):
 
@@ -56,6 +57,7 @@ class IgBlastRun():
         self.numV = arg_dict['num_V_alignments']
         self.numD = arg_dict['num_D_alignments']
         self.numJ = arg_dict['num_J_alignments']
+        self.num_procs = arg_dict['multi']
         self.species = arg_dict['species']
         self.receptor = arg_dict['receptor']
         self.igblast_out = tempfile.NamedTemporaryFile(suffix='.blast_out', delete=False).name
@@ -106,6 +108,7 @@ class IgBlastRun():
             '-num_descriptions', '1',
             '-penalty', '-1',
             '-reward', '1',
+            '-num_threads', '1',
             '-show_translation'
         ]
 
@@ -126,11 +129,11 @@ class IgBlastRun():
         # make sure this process is terminated on keyboard interrupt
         signal.signal(signal.SIGINT, self.signal_handler)
 
-        p = subprocess.Popen(collectedArgs, stderr=subprocess.PIPE)
+        p = subprocess.Popen(collectedArgs, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         stderr = p.communicate()
 
         if stderr[1]:
-            print "Error in calling Igblastn:\n\n {0}".format(stderr[1])
+            print("Error in calling Igblastn:\n\n {0}".format(stderr[1]))
 
         # until process is done until it moves on to the next line
         p.wait()
@@ -142,4 +145,6 @@ class IgBlastRun():
 
         os.remove(self.igblast_out)
 
-        return output_file, total_parsed
+        time.sleep(.1)
+
+        return output_file, total_parsed, input_file

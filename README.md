@@ -6,12 +6,12 @@ A Python wrapper for IgBLAST that scales to allow for the parallel processing of
 Requires
 =========
 
-1. Python 2.7 - 2.9
+1. Python 3.6
 
 Installation
 =========
 
-Pip version must be at least 2.7
+Pip version must be at least 10.0.1 (python 3.6)
 
 **Global Installation**
 ```bash
@@ -104,12 +104,13 @@ pyir PyIr/testing/1K_Seqs.fasta -d pyir_data
 Usage
 ========
 ```
-pyir [-h] -d DATABASE [-r {Ig,TCR}] [-s {human,mouse}]
-    [-nV NUM_V_ALIGNMENTS] [-nD NUM_D_ALIGNMENTS]
-    [-nJ NUM_J_ALIGNMENTS] [-mD MIND] [-cz CHUNK_SIZE] [-x EXECUTABLE]
-    [-m MULTI] [-o inputfile.json.gz] [--debug]
-    [--additional_field ADDITIONAL_FIELD] [-f json] [--pretty]
-    query.fasta
+usage: pyir [-h] -d DATABASE [-r {Ig,TCR}] [-s {human,mouse}]
+            [-nV NUM_V_ALIGNMENTS] [-nD NUM_D_ALIGNMENTS]
+            [-nJ NUM_J_ALIGNMENTS] [-mD MIND] [-cz CHUNK_SIZE] [-x EXECUTABLE]
+            [-m MULTI] [-o inputfile.json.gz] [--debug]
+            [--additional_field ADDITIONAL_FIELD] [-f json] [--pretty]
+            [--silent]
+            query.fasta
 
 A Python wrapper for IgBLAST that scales to allow for the parallel processing
 of millions of reads on shared memory computers. All output is stored in a
@@ -174,7 +175,35 @@ General Arguments:
                         additional_field=donor,10` adds a donor field with
                         value 10.
   -f json, --out-format json
-                        Output file format, defaults to json, but csv can be
-                        specified
+                        Output file format, only json currently supported
   --pretty              Pretty json output
+  --silent              Silence stdout
+```
+
+Using PyIR as an api
+========
+
+```python
+import json
+import pyir.factory
+import tempfile
+
+input_file = open('1K_Seqs.fasta', 'r')
+out_file = tempfile.NamedTemporaryFile(delete=True)
+num_procs = 4
+argument_overrides = {
+    'silent': True,
+    'database': 'Path/To/Database',
+    'query': input_file,
+    'out': out_file.name,
+    'multi': num_procs
+}
+
+py_ir = pyir.factory.PyIr(argument_overrides)
+result = py_ir.run()
+for line in result:
+    seq = json.loads(line)
+    # Do whatever you need with the resulting sequence
+    print(seq['Sequence ID'], seq['Top V gene match'] if 'Top V gene match' in seq else 'No match' )
+
 ```
