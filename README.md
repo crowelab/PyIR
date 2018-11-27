@@ -46,56 +46,30 @@ wget -mnH --cut-dirs=4 ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/
 wget -mnH --cut-dirs=5 --directory-prefix=aux ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/optional_file/ ./
 
 # Create Ig and TCR folders.
-mkdir -p Ig/human Ig/mouse TCR/human TCR/mouse
+mkdir -p Ig/human TCR/human
 ```
 
-Go to http://www.imgt.org/vquest/refseqh.html and copy your human/mouse heavy **and** light genes into the following files
+Go to http://www.imgt.org/vquest/refseqh.html and copy your human heavy **and** light genes into the following files
 
 pyir_data/Ig/human/human_gl_V.fasta
 pyir_data/Ig/human/human_gl_D.fasta
 pyir_data/Ig/human/human_gl_J.fasta
-pyir_data/Ig/mouse/mouse_gl_V.fasta
-pyir_data/Ig/mouse/mouse_gl_D.fasta
-pyir_data/Ig/mouse/mouse_gl_J.fasta
 
-The following perl script can be used to convert your IMGT fasta into a fasta makeblastdb can evaluate
-
-```perl
-#!/usr/bin/perl  -w
-
-
-use strict;
-my $inputfile=shift (@ARGV);
-
-open(in_handle, $inputfile);
-
-while(my $line=<in_handle>){
- #print ("line = $line\n");
-  if ($line =~ /^>.*\|(TR.+)\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|/){
-    print(">$1\n");
-  } elsif ($line =~ /^>.*\|(IG.+)\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|.*\|/){
-    print(">$1\n");
-  } else {
-    $line =~ s/\.+//g;
-    #get rid of dot
-    print("$line");
-  }
-}
-
-close (in_handle);
-```
-
-Copy this command into an executable file edit_imgt_file.pl and then run the following example command on all fastas.
+Once you've copied the data from IMGT, run the following commands to format the IMGT fastas into fastas makeblastdb can evaluate
 
 ```bash
 perl edit_imgt_file.pl pyir_data/Ig/human/human_gl_V.fasta > pyir_data/Ig/human/human_gl_V
+perl edit_imgt_file.pl pyir_data/Ig/human/human_gl_J.fasta > pyir_data/Ig/human/human_gl_J
+perl edit_imgt_file.pl pyir_data/Ig/human/human_gl_D.fasta > pyir_data/Ig/human/human_gl_D
 ```
 
 PyIr comes packaged with PyIr/bin/makeblastdb_linux and PyIr/bin/makeblastdb_darwin. If on linux use makeblastdb_linux and if on mac use makeblastdb_darwin.
-Run the following example command on all fastas generated from the previous perl command.
+Run the following commands to build the BLAST database from the fastas generated from the previous perl command.
 
 ```bash
 PyIR/bin/makeblastdb_linux -dbtype nucl -hash_index -parse_seqids -in pyir_data/Ig/human/human_gl_V
+PyIR/bin/makeblastdb_linux -dbtype nucl -hash_index -parse_seqids -in pyir_data/Ig/human/human_gl_J
+PyIR/bin/makeblastdb_linux -dbtype nucl -hash_index -parse_seqids -in pyir_data/Ig/human/human_gl_D
 ```
 You can run PyIr the following way
 
@@ -209,3 +183,15 @@ for line in result:
     print(seq['Sequence ID'], seq['Top V gene match'] if 'Top V gene match' in seq else 'No match' )
 
 ```
+
+Synthetic Data Sets
+========
+
+Synthetic data sets are available for PyIR at the following links:
+[HIP1](https://vumc.box.com/s/4j0qik17muxkat610k68n12w4zzgzhrk)
+[HIP2 (Part 1)](https://vumc.box.com/s/choce3dr9tt3ddleyykta0nzmv6kg66y)
+[HIP2 (Part 2)](https://vumc.box.com/s/fpq2morlllk7g5b5hu1858h2xw53a0bn)
+[HIP3](https://vumc.box.com/s/rl3nz1d31ey5vte7rda8heknqtvr7u7g)
+[CORD1](https://vumc.box.com/s/cs42juru0hcm2hvbszak313f4a9jlmro)
+[CORD2](https://vumc.box.com/s/ny0c2q325gshkt65xd2v7vz0dz5s6ir5)
+[CORD3](https://vumc.box.com/s/6lafm9wk2vmzsg3kwuujti3k6woqtf1l)
