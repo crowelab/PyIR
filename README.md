@@ -7,8 +7,8 @@ Requires
 =========
 
 1. Python 3.6
-2. MacOSX or Linux are currently the only supported operating systems
-3. wget - should be present in linux distirubtions automatically and is present available for mac OS through the homebrew package manager. 
+2. MacOSX or Linux
+3. wget - Installed on many linux distributions by default. Available for mac through the homebrew package manager
 
 Installation
 =========
