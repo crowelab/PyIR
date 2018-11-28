@@ -201,10 +201,9 @@ Synthetic Data Sets
 ========
 
 Synthetic clonotype data sets for manuscript *High frequency of shared clonotypes in human B cell receptor* repertoires:
-- [simHIP1](https://vumc.box.com/s/4j0qik17muxkat610k68n12w4zzgzhrk)
-- [simHIP2 (Part 1)](https://vumc.box.com/s/choce3dr9tt3ddleyykta0nzmv6kg66y)
-- [simHIP2 (Part 2)](https://vumc.box.com/s/fpq2morlllk7g5b5hu1858h2xw53a0bn)
-- [simHIP3](https://vumc.box.com/s/rl3nz1d31ey5vte7rda8heknqtvr7u7g)
-- [simCORD1](https://vumc.box.com/s/cs42juru0hcm2hvbszak313f4a9jlmro)
-- [simCORD2](https://vumc.box.com/s/ny0c2q325gshkt65xd2v7vz0dz5s6ir5)
-- [simCORD3](https://vumc.box.com/s/6lafm9wk2vmzsg3kwuujti3k6woqtf1l)
+- [simHIP1](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP1.tar)
+- [simHIP2](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP2.tar)
+- [simHIP3](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP3.tar)
+- [simCORD1](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/CORD1.tar)
+- [simCORD2](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/CORD2.tar)
+- [simCORD3](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/CORD3.tar)
