@@ -40,35 +40,16 @@ cd $MAIN
 ######################
 # FORMAT FASTA FILES #
 ######################
-if [ ! -d $MAIN/pyir_data/Ig ]; then
-    mkdir $MAIN/pyir_data/Ig
+if [ -d $MAIN/pyir_data ]; then
+    rm -rf $MAIN/pyir_data
 fi
 
-if [ ! -d $MAIN/pyir_data/Ig/human ]; then
-    mkdir $MAIN/pyir_data/Ig/human
-else
-    rm -r $MAIN/pyir_data/Ig/human
-    mkdir $MAIN/pyir_data/Ig/human
-fi
-
-if [ ! -d $MAIN/pyir_data/TCR ]; then
-    mkdir $MAIN/pyir_data/TCR
-fi
-
-if [ ! -d $MAIN/pyir_data/TCR/human ]; then
-    mkdir $MAIN/pyir_data/TCR/human
-else
-    rm -r $MAIN/pyir_data/TCR/human
-    mkdir $MAIN/pyir_data/TCR/human
-fi
+mkdir -p $MAIN/pyir_data/Ig/human
+mkdir -p $MAIN/pyir_data/TCR/human
 
 ###########
 # Ig DATA #
 ###########
-mkdir -p $MAIN/pyir_data/Ig/human
-#mkdir -p $MAIN/pyir_data/Ig/human/human_gl_J
-#mkdir -p $MAIN/pyir_data/Ig/human/human_gl_D
-
 cat $MAIN/IMGT/IGHV.fasta  > $MAIN/pyir_data/Ig/human/human_gl_V.fasta
 cat $MAIN/IMGT/IGKV.fasta >> $MAIN/pyir_data/Ig/human/human_gl_V.fasta
 cat $MAIN/IMGT/IGLV.fasta >> $MAIN/pyir_data/Ig/human/human_gl_V.fasta
@@ -87,8 +68,6 @@ perl $MAIN/edit_imgt_file.pl $MAIN/pyir_data/Ig/human/human_gl_D.fasta > $MAIN/p
 ############
 # TCR DATA #
 ############
-mkdir -p $MAIN/pyir_data/TCR/human
-
 cat $MAIN/IMGT/TRBV.fasta  > $MAIN/pyir_data/TCR/human/human_gl_V.fasta
 cat $MAIN/IMGT/TRAV.fasta >> $MAIN/pyir_data/TCR/human/human_gl_V.fasta
 
