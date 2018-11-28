@@ -196,7 +196,7 @@ for line in result:
 Synthetic Data Sets
 ========
 
-Synthetic clonotype data sets for manuscript High frequency of shared clonotypes in human B cell receptor repertoires:
+Synthetic clonotype data sets for manuscript *High frequency of shared clonotypes in human B cell receptor* repertoires:
 - [HIP1](https://vumc.box.com/s/4j0qik17muxkat610k68n12w4zzgzhrk)
 - [HIP2 (Part 1)](https://vumc.box.com/s/choce3dr9tt3ddleyykta0nzmv6kg66y)
 - [HIP2 (Part 2)](https://vumc.box.com/s/fpq2morlllk7g5b5hu1858h2xw53a0bn)
