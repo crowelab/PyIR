@@ -25,6 +25,7 @@ git clone https://github.com/crowelab/PyIR
 ```
 
 **Global Installation**
+
 Ensure that pip is associated with the correct verison of python. If pip --version says that it is asscoiated with python version 2 then pip3 should be explicityly used instead of pip.
 ```bash
 cd PyIR/
@@ -33,6 +34,7 @@ sudo pip install .
 ```
 
 **Local Installation**
+
 Ensure that pip is associated with the correct verison of python. If pip --version says that it is asscoiated with python version 2 then pip3 should be explicityly used instead of pip.
 ```bash
 cd PyIR/
