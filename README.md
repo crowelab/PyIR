@@ -201,10 +201,10 @@ Synthetic Data Sets
 ========
 
 Synthetic clonotype data sets for manuscript *High frequency of shared clonotypes in human B cell receptor* repertoires:
-- [HIP1](https://vumc.box.com/s/4j0qik17muxkat610k68n12w4zzgzhrk)
-- [HIP2 (Part 1)](https://vumc.box.com/s/choce3dr9tt3ddleyykta0nzmv6kg66y)
-- [HIP2 (Part 2)](https://vumc.box.com/s/fpq2morlllk7g5b5hu1858h2xw53a0bn)
-- [HIP3](https://vumc.box.com/s/rl3nz1d31ey5vte7rda8heknqtvr7u7g)
-- [CORD1](https://vumc.box.com/s/cs42juru0hcm2hvbszak313f4a9jlmro)
-- [CORD2](https://vumc.box.com/s/ny0c2q325gshkt65xd2v7vz0dz5s6ir5)
-- [CORD3](https://vumc.box.com/s/6lafm9wk2vmzsg3kwuujti3k6woqtf1l)
+- [simHIP1](https://vumc.box.com/s/4j0qik17muxkat610k68n12w4zzgzhrk)
+- [simHIP2 (Part 1)](https://vumc.box.com/s/choce3dr9tt3ddleyykta0nzmv6kg66y)
+- [simHIP2 (Part 2)](https://vumc.box.com/s/fpq2morlllk7g5b5hu1858h2xw53a0bn)
+- [simHIP3](https://vumc.box.com/s/rl3nz1d31ey5vte7rda8heknqtvr7u7g)
+- [simCORD1](https://vumc.box.com/s/cs42juru0hcm2hvbszak313f4a9jlmro)
+- [simCORD2](https://vumc.box.com/s/ny0c2q325gshkt65xd2v7vz0dz5s6ir5)
+- [simCORD3](https://vumc.box.com/s/6lafm9wk2vmzsg3kwuujti3k6woqtf1l)
