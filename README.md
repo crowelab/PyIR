@@ -8,13 +8,19 @@ Requires
 =========
 
 1. Python 3.6
-2. MacOSX or Linux
-3. wget - Installed on many linux distributions by default. Available for mac through the homebrew package manager
+2. Pip version 10.0.1 or greater (python 3.6)
+3. MacOSX or Linux
+4. wget - Installed on many linux distributions by default. Available for mac through the homebrew package manager
 
 Installation
 =========
 
-Pip version must be at least 10.0.1 (python 3.6)
+**Download the repository**
+
+This repository can be downloaded by selecting "Download ZIP" from the "Clone and Download" menu at the top right of this github page or by using git from command line.
+
+If you have git installed you may use the command in order to place a copy of the github repo into your current directory.
+```git clone https://github.com/crowelab/PyIR ```
 
 **Global Installation**
 ```bash
