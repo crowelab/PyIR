@@ -1,4 +1,4 @@
-[High frequency of shared clonotypes in human B cell receptor repertoires](#files-associated-with-the-manuscript-high-frequency-of-shared-clonotypes-in-human-b-cell-receptor-repertoires)
+### [Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*](#files-associated-with-the-manuscript-high-frequency-of-shared-clonotypes-in-human-b-cell-receptor-repertoires)
 
 # PyIR
 Immunoglobulin and T-Cell receptor rearrangement software
@@ -8,6 +8,8 @@ A Python wrapper for IgBLAST that scales to allow for the parallel processing of
 
 Requires
 =========
+
+
 
 1. Python 3.6
 2. Pip version 10.0.1 or greater (python 3.6)
@@ -171,8 +173,8 @@ General Arguments:
   --silent              Silence stdout
 ```
 
-Using PyIR as an api
-========
+# Using PyIR as an api
+
 
 ```python
 import json
@@ -199,9 +201,18 @@ for line in result:
 
 ```
 
-### Files associated with the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
 
 
+
+
+
+______
+
+
+## Files associated with the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
+
+
+ 
 
 Synthetic clonotype data sets:
 - [simHIP1](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP1.tar)
