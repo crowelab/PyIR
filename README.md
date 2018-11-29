@@ -199,8 +199,8 @@ for line in result:
 
 ```
 
-# Files associated with the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
-========
+### Files associated with the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
+
 
 
 Synthetic clonotype data sets:
