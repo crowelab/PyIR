@@ -1,3 +1,5 @@
+[High frequency of shared clonotypes in human B cell receptor repertoires](#files-associated-with-the-manuscript-high-frequency-of-shared-clonotypes-in-human-b-cell-receptor-repertoires)
+
 # PyIR
 Immunoglobulin and T-Cell receptor rearrangement software
 
@@ -197,9 +199,9 @@ for line in result:
 
 ```
 
-Files associated with *High frequency of shared clonotypes in human B cell receptor repertoires*
-Synthetic Data Sets
+# Files associated with the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
 ========
+
 
 Synthetic clonotype data sets:
 - [simHIP1](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP1.tar)
