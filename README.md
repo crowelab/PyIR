@@ -53,6 +53,10 @@ export PATH=$PY_USER_BIN:$PATH
 
 **Building the Database**
 
+A shell script has been included in this repository which will build the databases and check to make sure that your installation is functioning properly. 
+You may run the included "SetupGermlineLibrary.sh" script in order to build the gerline library and load test data. If the setup is successful then a file will be created which is a gunzipped json file containing the output of PyIR for the setup scripts testcase.
+
+
 ```bash
 mkdir pyir_data
 cd pyir_data
