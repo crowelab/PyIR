@@ -1,5 +1,16 @@
 ### [Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*](#files-associated-with-the-manuscript-high-frequency-of-shared-clonotypes-in-human-b-cell-receptor-repertoires)
 
+#### [Install PyIR globally for all users of your workstation](#global-installation)
+
+#### [Install PyIR locally (for the user that you are currently logged in under)](#global-installation)
+
+#### [Building the database](#building-the-database)
+
+#### [Usage](#usage)
+
+#### [Using PyIR as an api](#using-pyir-as-an-api)
+
+
 # PyIR
 Immunoglobulin and T-Cell receptor rearrangement software
 
@@ -28,7 +39,7 @@ If you have git installed you may use the command in order to place a copy of th
 git clone https://github.com/crowelab/PyIR
 ```
 
-**Global Installation**
+#### **Global Installation**
 
 Ensure that pip is associated with the correct verison of python. If pip --version says that it is asscoiated with python version 2 then pip3 should be explicityly used instead of pip.
 ```bash
@@ -37,7 +48,7 @@ sudo pip install .
 
 ```
 
-**Local Installation**
+#### **Local Installation**
 
 Ensure that pip is associated with the correct verison of python. If pip --version says that it is asscoiated with python version 2 then pip3 should be explicityly used instead of pip.
 ```bash
@@ -51,7 +62,7 @@ export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
 export PATH=$PY_USER_BIN:$PATH
 ```
 
-**Building the Database**
+#### **Building the Database**
 
 A shell script has been included in this repository which will build the databases and check to make sure that your installation is functioning properly. 
 You may run the included "SetupGermlineLibrary.sh" script in order to build the gerline library and load test data. If the setup is successful then a file will be created which is a gunzipped json file containing the output of PyIR for the setup scripts testcase.
@@ -98,8 +109,8 @@ You can run PyIr the following way
 pyir PyIr/testing/1K_Seqs.fasta -d pyir_data
 ```
 
-Usage
-========
+## Usage
+
 ```
 usage: pyir [-h] -d DATABASE [-r {Ig,TCR}] [-s {human,mouse}]
             [-nV NUM_V_ALIGNMENTS] [-nD NUM_D_ALIGNMENTS]
