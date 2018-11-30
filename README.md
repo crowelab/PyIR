@@ -6,7 +6,7 @@
 
 #### [Building the databases that are used by PyIR](#building-the-database)
 
-#### [Usage](#usage)
+#### [Using PyIR from commandline](#usage)
 
 #### [Using PyIR as an api](#using-pyir-as-an-api)
 
