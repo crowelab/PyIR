@@ -44,8 +44,18 @@ if [ -d $MAIN/pyir_data ]; then
     rm -rf $MAIN/pyir_data
 fi
 
+
 mkdir -p $MAIN/pyir_data/Ig/human
 mkdir -p $MAIN/pyir_data/TCR/human
+
+cd $MAIN/pyir_data
+
+# Download igblast internal and aux data
+# All data can be manually downloaded here ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release or use the following convenience commands
+wget -mnH --cut-dirs=4 ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/internal_data ./
+wget -mnH --cut-dirs=5 --directory-prefix=aux ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/optional_file/ ./
+
+cd $MAIN
 
 ###########
 # Ig DATA #
@@ -104,6 +114,7 @@ $MAIN/bin/makeblastdb_${machine} -dbtype nucl -hash_index -parse_seqids -in $MAI
 # TEST  #
 #########
 cd $MAIN
+
 ###########
 # TEST IG #
 ###########
