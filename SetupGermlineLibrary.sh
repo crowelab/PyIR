@@ -78,17 +78,17 @@ perl $MAIN/edit_imgt_file.pl $MAIN/pyir_data/Ig/human/human_gl_D.fasta > $MAIN/p
 ############
 # TCR DATA #
 ############
-cat $MAIN/IMGT/TRBV.fasta  > $MAIN/pyir_data/TCR/human/human_gl_V.fasta
-cat $MAIN/IMGT/TRAV.fasta >> $MAIN/pyir_data/TCR/human/human_gl_V.fasta
+cat $MAIN/IMGT/TRBV.fasta  > $MAIN/pyir_data/TCR/human/human_TCR_V.fasta
+cat $MAIN/IMGT/TRAV.fasta >> $MAIN/pyir_data/TCR/human/human_TCR_V.fasta
 
-cat $MAIN/IMGT/TRBJ.fasta  > $MAIN/pyir_data/TCR/human/human_gl_J.fasta
-cat $MAIN/IMGT/TRAJ.fasta >> $MAIN/pyir_data/TCR/human/human_gl_J.fasta
+cat $MAIN/IMGT/TRBJ.fasta  > $MAIN/pyir_data/TCR/human/human_TCR_J.fasta
+cat $MAIN/IMGT/TRAJ.fasta >> $MAIN/pyir_data/TCR/human/human_TCR_J.fasta
 
-cat $MAIN/IMGT/TRBD.fasta  > $MAIN/pyir_data/TCR/human/human_gl_D.fasta
+cat $MAIN/IMGT/TRBD.fasta  > $MAIN/pyir_data/TCR/human/human_TCR_D.fasta
 
-perl $MAIN/edit_imgt_file.pl $MAIN/pyir_data/TCR/human/human_gl_V.fasta > $MAIN/pyir_data/TCR/human/human_gl_V
-perl $MAIN/edit_imgt_file.pl $MAIN/pyir_data/TCR/human/human_gl_J.fasta > $MAIN/pyir_data/TCR/human/human_gl_J
-perl $MAIN/edit_imgt_file.pl $MAIN/pyir_data/TCR/human/human_gl_D.fasta > $MAIN/pyir_data/TCR/human/human_gl_D
+perl $MAIN/edit_imgt_file.pl $MAIN/pyir_data/TCR/human/human_TCR_V.fasta > $MAIN/pyir_data/TCR/human/human_TCR_V
+perl $MAIN/edit_imgt_file.pl $MAIN/pyir_data/TCR/human/human_TCR_J.fasta > $MAIN/pyir_data/TCR/human/human_TCR_J
+perl $MAIN/edit_imgt_file.pl $MAIN/pyir_data/TCR/human/human_TCR_D.fasta > $MAIN/pyir_data/TCR/human/human_TCR_D
 
 
 ############################################
@@ -106,9 +106,9 @@ $MAIN/bin/makeblastdb_${machine} -dbtype nucl -hash_index -parse_seqids -in $MAI
 ############
 # TCR DATA #
 ############
-$MAIN/bin/makeblastdb_${machine} -dbtype nucl -hash_index -parse_seqids -in $MAIN/pyir_data/TCR/human/human_gl_V
-$MAIN/bin/makeblastdb_${machine} -dbtype nucl -hash_index -parse_seqids -in $MAIN/pyir_data/TCR/human/human_gl_J
-$MAIN/bin/makeblastdb_${machine} -dbtype nucl -hash_index -parse_seqids -in $MAIN/pyir_data/TCR/human/human_gl_D
+$MAIN/bin/makeblastdb_${machine} -dbtype nucl -hash_index -parse_seqids -in $MAIN/pyir_data/TCR/human/human_TCR_V
+$MAIN/bin/makeblastdb_${machine} -dbtype nucl -hash_index -parse_seqids -in $MAIN/pyir_data/TCR/human/human_TCR_J
+$MAIN/bin/makeblastdb_${machine} -dbtype nucl -hash_index -parse_seqids -in $MAIN/pyir_data/TCR/human/human_TCR_D
 
 #########
 # TEST  #
@@ -118,9 +118,9 @@ cd $MAIN
 ###########
 # TEST IG #
 ###########
-pyir ./testing/1K_Seqs.fasta -d pyir_data -o foobar.json.gz --pretty -f json -r Ig
+pyir ./testing/1K_Seqs.fasta -d pyir_data -o foobar-ig --pretty -f json -r Ig
 
 ############
 # TEST TCR #
 ############
-#pyir ./testing/1K_Seqs-TCR.fasta -d pyir_data -o foobar.json.gz --pretty -f json -r TCR
+pyir ./testing/1K_Seqs-TCR.fasta -d pyir_data -o foobar-tcr --pretty -f json -r TCR
