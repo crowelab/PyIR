@@ -1,6 +1,6 @@
 ### [Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*](#files-associated-with-the-manuscript-high-frequency-of-shared-clonotypes-in-human-b-cell-receptor-repertoires)
 
-#### [Install PyIR globally for all users of your workstation](#global-installation)
+#### [Install PyIR globally (for all users of your workstation)](#global-installation)
 
 #### [Install PyIR locally (for the user that you are currently logged in under)](#global-installation)
 
