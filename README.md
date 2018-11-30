@@ -4,7 +4,7 @@
 
 #### [Install PyIR locally (for the user that you are currently logged in under)](#global-installation)
 
-#### [Building the database](#building-the-database)
+#### [Building the databases that are used by PyIR](#building-the-database)
 
 #### [Usage](#usage)
 
