@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/105039360.svg)](https://zenodo.org/badge/latestdoi/105039360)
+
 ### [Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*](#files-associated-with-the-manuscript-high-frequency-of-shared-clonotypes-in-human-b-cell-receptor-repertoires)
 
 #### [Install PyIR globally (for all users of your workstation)](#global-installation)
