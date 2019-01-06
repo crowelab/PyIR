@@ -228,13 +228,47 @@ for line in result:
 
 
 ______
-
-
 ## Files associated with the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
+
+- [Source code (Recombinator and additional scripts)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/SOURCECODE-2017-09-12766.tgz)
+
+Adaptive Biotechnologies data sets (FASTA)
+
+- [HIP2](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP2-BCR-ADAPTIVE.tgz)
+
+Data sets obtained from sequencing
+
+- [HIP1-3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2A-V3J-EXPERIMENTAL-CLONOTYPES-HIP1-3.tgz)
+
+- [HIP1-3 heavy chain V3DJ clonotypes](crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2B-V3DJ-EXPERIMENTAL-CLONOTYPES-HIP1-3.tgz)
+
+- [Shared HIP1+2+3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2D-SHARED-HEAVY.tgz)
+
+- [HIP1-3 kappa light chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/LIGHT-CHAINS/EXTENDED-DATA-FIGURE2G-V3J-EXPERIMENTAL-CLONOTYPES-HIP1-3-IGK.tgz)
+
+- [HIP1-3 lambda light chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/LIGHT-CHAINS/EXTENDED-DATA-FIGURE2G-V3J-EXPERIMENTAL-CLONOTYPES-HIP1-3-IGL.tgz)
+
+- [CORD1-3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/FIGURE3C-V3J-EXPERIMENTAL-CLONOTYPES-CORD1-3.tgz)
+
+- [CORD1-3 heavy chain V3DJ clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/EXTENDED-DATA-FIGURE3A-V3DJ-EXPERIMENTAL-CLONOTYPES-CORD1-3.tgz)
+
+- [Shared HIP1+2+3 and CORD1-3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/ALL+CORD1+CORD2+CORD3.dat.gz)
+
+
+Synthetic data sets created using Recombinator
+
+- [500 subsampled heavy chain V3DJ clonotypes for HIP1, HIP2 and HIP3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2A-V3J-EXPERIMENTAL-CLONOTYPES-HIP1-3.tgz)
+
+- [Full set of synthetic clonotypes for HIP1 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP1+FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
+
+- [Full set of synthetic clonotypes for HIP2 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP2+FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
+
+- [Full set of synthetic clonotypes for HIP3 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP3+FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
+
+- [100 sampled heavy chain V3DJ clonotypes for CORD1, CORD2 or CORD3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/SYNTHETIC-CORDS.tgz)
 
 
  
-
 Synthetic clonotype data sets:
 - [simHIP1](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP1.tar)
 - [simHIP2](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP2.tar)
