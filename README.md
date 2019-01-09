@@ -259,11 +259,11 @@ Synthetic data sets created using Recombinator
 
 - [500 subsampled heavy chain V3DJ clonotypes for HIP1, HIP2 and HIP3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2A-V3J-EXPERIMENTAL-CLONOTYPES-HIP1-3.tgz)
 
-- [Full set of synthetic clonotypes for HIP1 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP1+FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
+- [Full set of synthetic clonotypes for HIP1 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP1-FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
 
-- [Full set of synthetic clonotypes for HIP2 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP2+FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
+- [Full set of synthetic clonotypes for HIP2 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP2-FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
 
-- [Full set of synthetic clonotypes for HIP3 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP3+FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
+- [Full set of synthetic clonotypes for HIP3 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP3-FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
 
 - [100 sampled heavy chain V3DJ clonotypes for CORD1, CORD2 and CORD3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/SYNTHETIC-CORDS.tgz)
 
