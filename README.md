@@ -265,7 +265,7 @@ Synthetic data sets created using Recombinator
 
 - [Full set of synthetic clonotypes for HIP3 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP3+FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
 
-- [100 sampled heavy chain V3DJ clonotypes for CORD1, CORD2 or CORD3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/SYNTHETIC-CORDS.tgz)
+- [100 sampled heavy chain V3DJ clonotypes for CORD1, CORD2 and CORD3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/SYNTHETIC-CORDS.tgz)
 
 
  <!--
