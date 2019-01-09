@@ -252,7 +252,7 @@ Data sets obtained from sequencing
 
 - [CORD1-3 heavy chain V3DJ clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/EXTENDED-DATA-FIGURE3A-V3DJ-EXPERIMENTAL-CLONOTYPES-CORD1-3.tgz)
 
-- [Shared HIP1+2+3 and CORD1-3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/ALL+CORD1+CORD2+CORD3.dat.gz)
+- [Shared HIP1+2+3 and CORD1-3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/ALL%2BCORD1%2BCORD2%2BCORD3.dat.gz)
 
 
 Synthetic data sets created using Recombinator
