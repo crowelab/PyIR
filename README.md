@@ -242,7 +242,7 @@ Data sets obtained from sequencing
 
 - [HIP1-3 heavy chain V3DJ clonotypes](crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2B-V3DJ-EXPERIMENTAL-CLONOTYPES-HIP1-3.tgz)
 
-- [Shared HIP1+2+3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2D-SHARED-HEAVY.tgz)
+- Shared HIP1+2+3 heavy chain V3J clonotypes (Available upon request)
 
 - [HIP1-3 kappa light chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/LIGHT-CHAINS/EXTENDED-DATA-FIGURE2G-V3J-EXPERIMENTAL-CLONOTYPES-HIP1-3-IGK.tgz)
 
@@ -252,7 +252,7 @@ Data sets obtained from sequencing
 
 - [CORD1-3 heavy chain V3DJ clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/EXTENDED-DATA-FIGURE3A-V3DJ-EXPERIMENTAL-CLONOTYPES-CORD1-3.tgz)
 
-- [Shared HIP1+2+3 and CORD1-3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/ALL%2BCORD1%2BCORD2%2BCORD3.dat.gz)
+- Shared HIP1+2+3 and CORD1-3 heavy chain V3J clonotypes (Available upon request)
 
 
 Synthetic data sets created using Recombinator
@@ -269,15 +269,3 @@ Synthetic data sets created using Recombinator
 
 
 
- <!--
-Synthetic clonotype data sets:
-- [simHIP1](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP1.tar)
-- [simHIP2](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP2.tar)
-- [simHIP3](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/HIP3.tar)
-- [simCORD1](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/CORD1.tar)
-- [simCORD2](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/CORD2.tar)
-- [simCORD3](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/CORD3.tar)
-
-Recombinator & additional scripts:
-- [Recombinator & other scripts](https://s3.amazonaws.com/crowelab-datasets-for-publication/SEEQ-PAPER-FILES/SOURCECODE-2017-09-12766.tgz)
--->
