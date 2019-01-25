@@ -240,7 +240,7 @@ Data sets obtained from sequencing
 
 - [HIP1-3 heavy chain V3J clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2A-V3J-EXPERIMENTAL-CLONOTYPES-HIP1-3.tgz)
 
-- [HIP1-3 heavy chain V3DJ clonotypes](crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2B-V3DJ-EXPERIMENTAL-CLONOTYPES-HIP1-3.tgz)
+- [HIP1-3 heavy chain V3DJ clonotypes](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HEAVY-CHAINS/FIGURE2B-V3DJ-EXPERIMENTAL-CLONOTYPES-HIP1-3.tgz)
 
 - Shared HIP1+2+3 heavy chain V3J clonotypes (Available upon request)
 
