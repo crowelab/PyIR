@@ -234,25 +234,7 @@ ______
 
 Adaptive Biotechnologies data sets (FASTA)
 
-- HIP2 (Available upon request)
-
-Data sets obtained from sequencing
-
-- HIP1-3 heavy chain V3J clonotypes (Available upon request)
-
-- HIP1-3 heavy chain V3DJ clonotypes (Available upon request)
-- Shared HIP1+2+3 heavy chain V3J clonotypes (Available upon request)
-
-- HIP1-3 kappa light chain V3J clonotypes (Available upon request
-
-- HIP1-3 lambda light chain V3J clonotypes (Available upon request)
-
-- CORD1-3 heavy chain V3J clonotypes (Available upon request)
-
-- CORD1-3 heavy chain V3DJ clonotypes (Available upon request)
-
-- Shared HIP1+2+3 and CORD1-3 heavy chain V3J clonotypes (Available upon request)
-
+- [HIP2](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP2-BCR-ADAPTIVE.tgz)
 
 Synthetic data sets created using Recombinator
 
@@ -267,3 +249,4 @@ Synthetic data sets created using Recombinator
 - [100 sampled heavy chain V3DJ clonotypes for CORD1, CORD2 and CORD3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/SYNTHETIC-CORDS.tgz)
 
 
+All other data is available upon request or through the SRA deposit associated with this publication.
