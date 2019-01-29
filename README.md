@@ -250,8 +250,6 @@ Synthetic data sets created using Recombinator
 
 - 500 subsampled heavy chain V3DJ clonotypes for [HIP1](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/SYNTHETICS/FIGURE2B-SUBSAMPLED-SYNTHETIC-HIP1.tar), [HIP2](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/SYNTHETICS/FIGURE2B-SUBSAMPLED-SYNTHETIC-HIP2.tar) and [HIP3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/SYNTHETICS/FIGURE2B-SUBSAMPLED-SYNTHETIC-HIP3.tar)
 
-<br />
-
 - [100 sampled heavy chain V3DJ clonotypes for CORD1, CORD2 and CORD3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/SYNTHETIC-CORDS.tgz)
 
 <br />
