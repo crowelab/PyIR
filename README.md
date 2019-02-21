@@ -236,6 +236,10 @@ Adaptive Biotechnologies data sets (FASTA)
 
 - [HIP2](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP2-BCR-ADAPTIVE.tgz)
 
+FASTQ contig files for HIP1, HIP2 and HIP3
+
+- [HIP1](https://vumc.box.com/s/ryvhequ93r2cpdn725x1awwvms3vebrn)
+
 Synthetic data sets created using Recombinator
 
 - [Full set of synthetic clonotypes for HIP1 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP1-FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
