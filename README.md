@@ -7,7 +7,7 @@ A Python wrapper for IgBLAST that scales to allow for the parallel processing of
 
 ### Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
 
-UPDATED February 21, 2019 -- [Check the wiki page](https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts) for the latest files we've made available.
+**:exclamation: UPDATED February 21, 2019 :exclamation:** -- [Check the wiki page](https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts) for the latest files we've made available.
 
 ### Quick Links
 
