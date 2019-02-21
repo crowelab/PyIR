@@ -1,23 +1,13 @@
 [![DOI](https://zenodo.org/badge/105039360.svg)](https://zenodo.org/badge/latestdoi/105039360)
 
-## Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
-
-[Check the wiki page](https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts) for the latest files we've made available.
-
-
 # PyIR
 Immunoglobulin and T-Cell receptor rearrangement software
 
 A Python wrapper for IgBLAST that scales to allow for the parallel processing of millions of reads on shared memory computers. All output is stored in a convenient JSON format.
 
+## Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
 
-Requires
-=========
-
-1. Python 3.6
-2. Pip version 10.0.1 or greater (python 3.6)
-3. MacOSX or Linux
-4. wget - Installed on many linux distributions by default. Available for mac through the homebrew package manager
+[Check the wiki page](https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts) for the latest files we've made available.
 
 #### [Install PyIR globally (for all users of your workstation)](#global-installation)
 
@@ -28,6 +18,14 @@ Requires
 #### [Using PyIR from bash](#usage)
 
 #### [Using PyIR as an api](#using-pyir-as-an-api)
+
+Requires
+=========
+
+1. Python 3.6
+2. Pip version 10.0.1 or greater (python 3.6)
+3. MacOSX or Linux
+4. wget - Installed on many linux distributions by default. Available for mac through the homebrew package manager
 
 
 
