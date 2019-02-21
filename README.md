@@ -239,26 +239,6 @@ Adaptive Biotechnologies data sets (FASTA)
 FASTQ contig files for HIP1, HIP2 and HIP3
 
 - [HIP1](https://vumc.box.com/s/ryvhequ93r2cpdn725x1awwvms3vebrn)
-[contig_run_92_sampleid_22207_vendor_HudsonAlpha_chain_HEAVY-LIGHT.fastq.gz](https://vumc.box.com/s/t2r8vbuq8niwxnw6z1baktz9k5hb191a)
-[contig_run_91_sampleid_22206_vendor_HudsonAlpha_chain_HEAVY-LIGHT.fastq.gz](https://vumc.box.com/s/8ygckw3c4vitu2b6dzif4ccccwya5rbv)
-[contig_run_90_sampleid_22207_vendor_HudsonAlpha_chain_HEAVY-LIGHT.fastq.gz](https://vumc.box.com/s/0mwm9bwd5qz2hajs9rj4f2uf5j8okl4t)
-[contig_run_89_sampleid_22206_vendor_HudsonAlpha_chain_HEAVY-LIGHT.fastq.gz](https://vumc.box.com/s/wxextbhy9fqfuxtfdni9df9pno7pvam9)
-[contig_run_75_sampleid_22081_vendor_AbHelix_chain_IGL.fastq.gz](https://vumc.box.com/s/tnj1acsduq0alo6j6oivxkq96za7a3nn)
-[contig_run_75_sampleid_22080_vendor_AbHelix_chain_IGK.fastq.gz](https://vumc.box.com/s/j9gahnzzdoh238dvldmr4z493no2kekd)
-[contig_run_75_sampleid_22079_vendor_AbHelix_chain_IGA.fastq.gz](https://vumc.box.com/s/36gms7pwws6bwu6b8l24h2gae2h4mn3a)
-[contig_run_75_sampleid_22078_vendor_AbHelix_chain_IGM.fastq.gz](https://vumc.box.com/s/0k82erlmk3wpmzk6b4q928akdmk89gx6)
-[contig_run_75_sampleid_22077_vendor_AbHelix_chain_IG4.fastq.gz](https://vumc.box.com/s/e3jf3pycm4sdum8q1y8t6qjypv5j7imk)
-[contig_run_75_sampleid_22076_vendor_AbHelix_chain_IG3.fastq.gz](https://vumc.box.com/s/88ko2b7wja7sfzt4hww0eb2gh35a4gps)
-[contig_run_75_sampleid_22075_vendor_AbHelix_chain_IG2.fastq.gz](https://vumc.box.com/s/p43rruxyoa90wzbctf0fobwweghoe5wb)
-[contig_run_75_sampleid_22074_vendor_AbHelix_chain_IG1.fastq.gz](https://vumc.box.com/s/tz2w02lyck49zt9m0nxynf9waam4pj19)
-[contig_run_74_sampleid_22071_vendor_AbHelix_chain_IGL.fastq.gz](https://vumc.box.com/s/wqvg63oswkfm5ure24w5szcnis1yxydv)
-[contig_run_74_sampleid_22070_vendor_AbHelix_chain_IGK.fastq.gz](https://vumc.box.com/s/woaybtxaabi4co9po9ohb2drulbmylhq)
-[contig_run_74_sampleid_22069_vendor_AbHelix_chain_IGA.fastq.gz](https://vumc.box.com/s/4p8ck2ajza3848h4rtmpvulas8ju0ga5)
-[contig_run_74_sampleid_22068_vendor_AbHelix_chain_IGM.fastq.gz](https://vumc.box.com/s/uhogd4h3d091uu4w2byx7jt2qutg6bz6)
-[contig_run_74_sampleid_22067_vendor_AbHelix_chain_IG4.fastq.gz](https://vumc.box.com/s/y789nmdvnmflznoavxpdykt0lqa50ybv)
-[contig_run_74_sampleid_22066_vendor_AbHelix_chain_IG3.fastq.gz](https://vumc.box.com/s/n5qojvyjb0ya2cvxo7e9svbm6o72spq9)
-[contig_run_74_sampleid_22065_vendor_AbHelix_chain_IG2.fastq.gz](https://vumc.box.com/s/iahfvhb67qbxi6gdvxlyz2w39owt6oji)
-[contig_run_74_sampleid_22064_vendor_AbHelix_chain_IG1.fastq.gz](https://vumc.box.com/s/hseypdi01dtyrnxbgkan4127xhqsecmw)
 
 Synthetic data sets created using Recombinator
 
