@@ -1,6 +1,23 @@
 [![DOI](https://zenodo.org/badge/105039360.svg)](https://zenodo.org/badge/latestdoi/105039360)
 
-### [Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*](#files-associated-with-the-manuscript-high-frequency-of-shared-clonotypes-in-human-b-cell-receptor-repertoires)
+## Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
+
+[Check the wiki page](https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts) for the latest files we've made available.
+
+
+# PyIR
+Immunoglobulin and T-Cell receptor rearrangement software
+
+A Python wrapper for IgBLAST that scales to allow for the parallel processing of millions of reads on shared memory computers. All output is stored in a convenient JSON format.
+
+
+Requires
+=========
+
+1. Python 3.6
+2. Pip version 10.0.1 or greater (python 3.6)
+3. MacOSX or Linux
+4. wget - Installed on many linux distributions by default. Available for mac through the homebrew package manager
 
 #### [Install PyIR globally (for all users of your workstation)](#global-installation)
 
@@ -13,21 +30,6 @@
 #### [Using PyIR as an api](#using-pyir-as-an-api)
 
 
-# PyIR
-Immunoglobulin and T-Cell receptor rearrangement software
-
-A Python wrapper for IgBLAST that scales to allow for the parallel processing of millions of reads on shared memory computers. All output is stored in a convenient JSON format.
-
-
-Requires
-=========
-
-
-
-1. Python 3.6
-2. Pip version 10.0.1 or greater (python 3.6)
-3. MacOSX or Linux
-4. wget - Installed on many linux distributions by default. Available for mac through the homebrew package manager
 
 Installation
 =========
@@ -226,38 +228,3 @@ for line in result:
 
 
 ______
-
-## Files associated with manuscripts
-
-[Check the wiki page](https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts) for the latest files we've made available for manuscripts
-
-## Files associated with the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
-
-- [Source code (Recombinator and additional scripts)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/SOURCECODE-2017-09-12766.tgz)
-
-Adaptive Biotechnologies data sets (FASTA)
-
-- [HIP2](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP2-BCR-ADAPTIVE.tgz)
-
-FASTQ contig files for HIP1, HIP2 and HIP3
-
-- [HIP1](https://vumc.box.com/s/ryvhequ93r2cpdn725x1awwvms3vebrn)
-
-Synthetic data sets created using Recombinator
-
-- [Full set of synthetic clonotypes for HIP1 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP1-FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
-
-- [Full set of synthetic clonotypes for HIP2 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP2-FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
-
-- [Full set of synthetic clonotypes for HIP3 (broken down by CDR3 length)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/HIP3-FULL-REPERTOIRE-BROKEN-DOWN-BY-CDR3-LENGTH.tar)
-
-- 500 subsampled heavy chain V3DJ clonotypes for [HIP1](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/SYNTHETICS/FIGURE2B-SUBSAMPLED-SYNTHETIC-HIP1.tar), [HIP2](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/SYNTHETICS/FIGURE2B-SUBSAMPLED-SYNTHETIC-HIP2.tar) and [HIP3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/HIP1-3_BCR/SYNTHETICS/FIGURE2B-SUBSAMPLED-SYNTHETIC-HIP3.tar)
-
-- [100 sampled heavy chain V3DJ clonotypes for CORD1, CORD2 and CORD3](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/CORD1-3_BCR/SYNTHETIC-CORDS.tgz)
-
-<br />
-
-
-- [HIP1 fastq contigs](https://vumc.box.com/s/ryvhequ93r2cpdn725x1awwvms3vebrn)
-
-All other data is available upon request.
