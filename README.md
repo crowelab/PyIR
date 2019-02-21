@@ -225,9 +225,12 @@ for line in result:
 
 
 
-
-
 ______
+
+## Files associated with manuscripts
+
+[Check the wiki page](https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts) for the latest files we've made available for manuscripts
+
 ## Files associated with the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
 
 - [Source code (Recombinator and additional scripts)](https://s3.amazonaws.com/crowelabpublicdataforpublications/HIP/SOURCECODE-2017-09-12766.tgz)
