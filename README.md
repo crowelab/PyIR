@@ -250,4 +250,7 @@ Synthetic data sets created using Recombinator
 
 <br />
 
+
+- [HIP1 fastq contigs](https://vumc.box.com/s/ryvhequ93r2cpdn725x1awwvms3vebrn)
+
 All other data is available upon request.
