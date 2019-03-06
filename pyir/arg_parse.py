@@ -68,7 +68,7 @@ class PyIrArgumentParser():
         blast_arguments.add_argument(
             "-nV",
             "--num_V_alignments",
-            default="3",
+            default="1",
             type=str,
             help="How many V genes do you want to match?"
         )
@@ -76,7 +76,7 @@ class PyIrArgumentParser():
         blast_arguments.add_argument(
             "-nD",
             "--num_D_alignments",
-            default="3",
+            default="1",
             type=str,
             help="How many D genes do you want to match?, does not apply for kappa and lambda"
         )
@@ -84,7 +84,7 @@ class PyIrArgumentParser():
         blast_arguments.add_argument(
             "-nJ",
             "--num_J_alignments",
-            default="3",
+            default="1",
             type=str,
             help="How many J genes do you want to match?"
         )

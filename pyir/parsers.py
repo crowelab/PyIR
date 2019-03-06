@@ -138,6 +138,7 @@ class VDJSummaryParser(BaseParser):
                     for hit in output['Hits']:
                         if hit['gene'] == value:
                             output['Top V gene e_value'] = hit['e_value']
+                            break
 
                 if stripped_key == 'Top D gene match':
                     self.set_family('D family', value, output)
@@ -147,6 +148,7 @@ class VDJSummaryParser(BaseParser):
                     for hit in output['Hits']:
                         if hit['gene'] == value:
                             output['Top J gene e_value'] = hit['e_value']
+                            break
 
             self.triggered = False
 
