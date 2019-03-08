@@ -17,4 +17,7 @@ COPY testing/ /tmp/testing
 WORKDIR /tmp
 RUN pip3 install .
 
-RUN bash SetupGermlineLibrary.sh
+RUN sh SetupGermlineLibrary.sh
+
+ENTRYPOINT ["pyir", "-d", "/tmp/pyir_data"]
+CMD ["/tmp/testing/1K_Seqs.fasta"]
