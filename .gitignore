@@ -3,3 +3,4 @@ pyir.egg-info/
 *.pyc
 .DS_Store
 testing/*.json*
+_config.yml
