@@ -73,7 +73,7 @@ class SignificantAlignmentParser(BaseParser):
     def __init__(self):
 
         self.trigger_regex = re.compile('^Sequences producing significant alignments')
-        self.hit_regex = re.compile('^(\S*)\s*(\S*)\s*(\S*)')
+        self.hit_regex = re.compile('(.*?)[ ]+([0-9.\-e]+)[ ]+([0-9.\-e]+)')
         self.halt_regex = re.compile('^Domain classification requested')
         self.hits = []
         self.triggered = False
