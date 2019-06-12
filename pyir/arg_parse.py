@@ -225,6 +225,11 @@ class PyIrArgumentParser():
 
         for binary in igblasts:
             try:
+                import stat
+                os.chmod(binary, stat.S_IEXEC)
+            except:
+                pass
+            try:
                 subprocess.check_call([binary, '-h'],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 return os.path.abspath(binary)
             except:
