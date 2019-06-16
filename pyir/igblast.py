@@ -61,6 +61,7 @@ class IgBlastRun():
         self.species = arg_dict['species']
         self.receptor = arg_dict['receptor']
         self.igblast_out = tempfile.NamedTemporaryFile(suffix='.blast_out', delete=False).name
+        self.wordSize = arg_dict['word_size']
 
         # First fetch the path to our data directory
         _path_to_data_base = os.path.join(os.environ['IGDATA'], self.receptor, self.species)
@@ -100,7 +101,7 @@ class IgBlastRun():
             '-domain_system', self.domain_system,
             '-out', self.igblast_out,
             '-query', self.query,
-            '-word_size', '11',
+            '-word_size', 'wordSize',
             '-gapopen', '5',
             '-gapextend', '2',
             '-evalue', '1000000.0',

@@ -97,6 +97,14 @@ class PyIrArgumentParser():
             help="The amount of nucleotide matches needed for a D gene match. >= 5 right now"
         )
 
+        blast_arguments.add_argument(
+            "-word_size", 
+            type=int,
+            default=9,
+            help="The word length that is going to be provded to igblast"
+
+        )
+
         type_arguments.add_argument(
             '-cz',
             '--chunk_size',
