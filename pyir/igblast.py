@@ -101,7 +101,7 @@ class IgBlastRun():
             '-domain_system', self.domain_system,
             '-out', self.igblast_out,
             '-query', self.query,
-            '-word_size', 'wordSize',
+            '-word_size', str(self.wordSize),
             '-gapopen', '5',
             '-gapextend', '2',
             '-evalue', '1000000.0',
