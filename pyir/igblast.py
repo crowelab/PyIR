@@ -61,6 +61,16 @@ class IgBlastRun():
         self.species = arg_dict['species']
         self.receptor = arg_dict['receptor']
         self.igblast_out = tempfile.NamedTemporaryFile(suffix='.blast_out', delete=False).name
+        self.wordSize = arg_dict['word_size']
+        self.gapOpen = arg_dict['gapopen']
+        self.gapExtend = arg_dict['gapextend']
+        self.eValue = arg_dict['evalue']
+        self.numAlignments = arg_dict['num_alignments']
+        self.numDescriptions = arg_dict['num_descriptions']
+        self.penalty = arg_dict['penalty']
+        self.reward = arg_dict['reward']
+
+
 
         # First fetch the path to our data directory
         _path_to_data_base = os.path.join(os.environ['IGDATA'], self.receptor, self.species)
@@ -100,14 +110,14 @@ class IgBlastRun():
             '-domain_system', self.domain_system,
             '-out', self.igblast_out,
             '-query', self.query,
-            '-word_size', '11',
-            '-gapopen', '5',
-            '-gapextend', '2',
-            '-evalue', '1000000.0',
-            '-num_alignments', '1',
-            '-num_descriptions', '1',
-            '-penalty', '-1',
-            '-reward', '1',
+            '-word_size', str(self.wordSize),
+            '-gapopen', str(self.gapOpen),
+            '-gapextend', str(self.gapExtend),
+            '-evalue', str(self.eValue),
+            '-num_alignments', str(self.numAlignments),
+            '-num_descriptions', str(self.numDescriptions),
+            '-penalty', str(self.penalty),
+            '-reward', str(self.reward),
             '-num_threads', '1',
             '-show_translation'
         ]

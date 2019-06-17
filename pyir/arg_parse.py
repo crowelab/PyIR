@@ -97,6 +97,63 @@ class PyIrArgumentParser():
             help="The amount of nucleotide matches needed for a D gene match. >= 5 right now"
         )
 
+        blast_arguments.add_argument(
+            "-word_size",
+            type=int,
+            default=11,
+            help="The word length that is going to be provded to igblast"
+        )
+
+        blast_arguments.add_argument(
+            "-gapopen",
+            type=int,
+            default=5,
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-gapextend",
+            type=int,
+            default=2,
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-evalue",
+            type=str,
+            default="1000000.0",
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-num_alignments",
+            type=int,
+            default=1,
+            help="Number of alignments that are computed in igblast for each gene"
+        )
+
+        blast_arguments.add_argument(
+            "-num_descriptions",
+            type=int,
+            default=1,
+            help="?"
+        )
+
+        # This is not currently being handled. There was an issue with the build when we uncommented and allowed the penalty to be set from the file -- commented out for the time being
+        blast_arguments.add_argument(
+            "-penalty",
+            type=int,
+            default=-1,
+            help="The score decrease when a mismatch is observed in igblast"
+        )
+
+        blast_arguments.add_argument(
+            "-reward",
+            type=int,
+            default=1,
+            help="The score increase when an match is observed in igblast"
+        )
+
         type_arguments.add_argument(
             '-cz',
             '--chunk_size',
