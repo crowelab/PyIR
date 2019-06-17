@@ -100,9 +100,57 @@ class PyIrArgumentParser():
         blast_arguments.add_argument(
             "-word_size", 
             type=int,
-            default=9,
+            default=11,
             help="The word length that is going to be provded to igblast"
+        )
 
+        blast_arguments.add_argument(
+            "-gapopen", 
+            type=int,
+            default=5,
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-gapextend", 
+            type=int,
+            default=2,
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-evalue", 
+            type=float,
+            default=1000000.0,
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-num_alignments", 
+            type=int,
+            default=1,
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-num_descriptions", 
+            type=int,
+            default=1,
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-penalty", 
+            type=int,
+            default=1,
+            help="asdf"
+        )
+
+        blast_arguments.add_argument(
+            "-reward", 
+            type=int,
+            default=1,
+            help="asdf"
         )
 
         type_arguments.add_argument(
