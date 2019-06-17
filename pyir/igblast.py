@@ -68,7 +68,7 @@ class IgBlastRun():
         self.numAlignments = arg_dict['num_alignments']
         self.numDescriptions = arg_dict['num_descriptions']
         self.penalty = arg_dict['penalty']
-        self.reward = arg_dict['reward'] 
+        self.reward = arg_dict['reward']
 
 
 
@@ -116,7 +116,8 @@ class IgBlastRun():
             '-evalue', str(self.eValue),
             '-num_alignments', str(self.numAlignments),
             '-num_descriptions', str(self.numDescriptions),
-            '-penalty', str(self.penalty),
+            # '-penalty', str(self.penalty), #this line seems to be having problems -- it is set up exactly like the others but when it is uncommented it fucks all our shit up.
+            '-penalty', '-1',
             '-reward', str(self.reward),
             '-num_threads', '1',
             '-show_translation'

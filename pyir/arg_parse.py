@@ -98,59 +98,60 @@ class PyIrArgumentParser():
         )
 
         blast_arguments.add_argument(
-            "-word_size", 
+            "-word_size",
             type=int,
             default=11,
             help="The word length that is going to be provded to igblast"
         )
 
         blast_arguments.add_argument(
-            "-gapopen", 
+            "-gapopen",
             type=int,
             default=5,
             help="asdf"
         )
 
         blast_arguments.add_argument(
-            "-gapextend", 
+            "-gapextend",
             type=int,
             default=2,
             help="asdf"
         )
 
         blast_arguments.add_argument(
-            "-evalue", 
-            type=float,
-            default=1000000.0,
+            "-evalue",
+            type=str,
+            default="1000000.0",
             help="asdf"
         )
 
         blast_arguments.add_argument(
-            "-num_alignments", 
+            "-num_alignments",
             type=int,
             default=1,
-            help="asdf"
+            help="Number of alignments that are computed in igblast for each gene"
         )
 
         blast_arguments.add_argument(
-            "-num_descriptions", 
+            "-num_descriptions",
             type=int,
             default=1,
-            help="asdf"
+            help="?"
+        )
+
+        # This is not currently being handled. There was an issue with the build when we uncommented and allowed the penalty to be set from the file -- commented out for the time being
+        blast_arguments.add_argument(
+            "-penalty",
+            type=int,
+            default=1,
+            help="The score decrease when a mismatch is observed in igblast"
         )
 
         blast_arguments.add_argument(
-            "-penalty", 
+            "-reward",
             type=int,
             default=1,
-            help="asdf"
-        )
-
-        blast_arguments.add_argument(
-            "-reward", 
-            type=int,
-            default=1,
-            help="asdf"
+            help="The score increase when an match is observed in igblast"
         )
 
         type_arguments.add_argument(
