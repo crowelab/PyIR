@@ -143,7 +143,7 @@ class PyIrArgumentParser():
         blast_arguments.add_argument(
             "-penalty",
             type=int,
-            default=1,
+            default=-1,
             help="The score decrease when a mismatch is observed in igblast"
         )
 

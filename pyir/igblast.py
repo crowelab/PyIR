@@ -116,8 +116,7 @@ class IgBlastRun():
             '-evalue', str(self.eValue),
             '-num_alignments', str(self.numAlignments),
             '-num_descriptions', str(self.numDescriptions),
-            # '-penalty', str(self.penalty), #this line seems to be having problems -- it is set up exactly like the others but when it is uncommented it fucks all our shit up.
-            '-penalty', '-1',
+            '-penalty', str(self.penalty),
             '-reward', str(self.reward),
             '-num_threads', '1',
             '-show_translation'
