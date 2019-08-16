@@ -20,6 +20,7 @@ A Python wrapper for IgBLAST that scales to allow for the parallel processing of
 #### [Using PyIR from bash](#usage)
 
 #### [Using PyIR as an api](#using-pyir-as-an-api)
+#### [Using PyIR in prebuilt Docker image](#using-a-docker-installation-of-pyir)
 
 Requires
 =========
@@ -223,7 +224,16 @@ for line in result:
     print(seq['Sequence ID'], seq['Top V gene match'] if 'Top V gene match' in seq else 'No match' )
 
 ```
+# Using a docker installation of pyir
+PyIR is also available in a docker iamge with the needed dependencies installed. This section will include some basic usage information for the docker image.
 
+You can pull the docker image from dockerhub using the following:
+docker pull crowelab/pyir:latest 
+
+In order to run pyir on your local data you must share the folder that the files are in with the docker image and run it.
+The output files will be placed in the same folder as the input files.
+
+docker run -v PATHONLOCALMACHINE:PATHONDOCKERIMAGE PATHONDOCKERIMAGE crowelab/pyir:latest
 
 
 
