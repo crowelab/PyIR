@@ -233,8 +233,26 @@ docker pull crowelab/pyir:latest
 In order to run pyir on your local data you must share the folder that the files are in with the docker image and run it.
 The output files will be placed in the same folder as the input files.
 
-docker run -v PATHONLOCALMACHINE:PATHONDOCKERIMAGE PATHONDOCKERIMAGE crowelab/pyir:latest
+replace the things in all caps with the proper paths for your specific usecase.
+```
+docker run -v LOCALPATH:DOCKERPATH DOCKERPATH/FILENAME crowelab/pyir:latest
+```
+Additional arguments which are passed to the docker call will be passed to pyir (see above)
+If no filename is provided then it will automatically inculde a dataset that we have provided for testing
 
 
+If you would like to make modifications you can also build the docker image yourself by running the following in your current directory:
+```
+docker build . -t pyir:pyir 
+```
+
+To run your own image you can 
+```
+docker image run pyir:pyir ... (additional arguments)
+```
+
+You can see additional information about the docker build here: https://cloud.docker.com/u/crowelab/repository/docker/crowelab/pyir
 
 ______
+
+If you experience an issue using pyir or its docker iamge feel free to reach out to tech@vvcenter.org or open an issue on this github repo.
