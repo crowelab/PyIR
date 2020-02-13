@@ -1,0 +1,64 @@
+>NW_001121239|IGHD1-1*01|Macaca mulatta|F|D-REGION|25110..25126|17 nt|1| | | | |17+0=17| |rev-compl|
+ggtacagctggaactat
+>NW_001121239|IGHD1-2*01|Macaca mulatta|F|D-REGION|23163..23179|17 nt|1| | | | |17+0=17| |rev-compl|
+ggtatagctggaactat
+>NW_001121239|IGHD1-3*01|Macaca mulatta|F|D-REGION|14635..14651|17 nt|1| | | | |17+0=17| |rev-compl|
+ggtataactggaacgac
+>NW_001121239|IGHD1-4*01|Macaca mulatta|F|D-REGION|4492..4508|17 nt|1| | | | |17+0=17| |rev-compl|
+ggtatagctggaacgac
+>NW_001121238|IGHD1-5*01|Macaca mulatta|ORF|D-REGION|262343..262359|17 nt|1| | | | |17+0=17| |rev-compl|
+ggtataactggaactac
+>NW_001121238|IGHD1-6*01|Macaca mulatta|ORF|D-REGION|251737..251749|13 nt|1| | | | |13+0=13| |rev-compl|
+ggtataactggaa
+>NW_001121238|IGHD1-7*01|Macaca mulatta|ORF|D-REGION|242799..242816|18 nt|1| | | | |18+0=18| |rev-compl|
+aggaacacctggaacgac
+>NW_001121238|IGHD1-8*01|Macaca mulatta|F|D-REGION|232935..232954|20 nt|1| | | | |20+0=20| |rev-compl|
+ggtatagtgggagctacaac
+>NW_001121239|IGHD2-1*01|Macaca mulatta|F|D-REGION|20437..20467|31 nt|1| | | | |31+0=31| |rev-compl|
+aggatattgtactagtactacttgctatgcc
+>NW_001121239|IGHD2-2*01|Macaca mulatta|F|D-REGION|11698..11728|31 nt|1| | | | |31+0=31| |rev-compl|
+aggatattgtagtggtggtgtctgctacgcc
+>NW_001121239|IGHD2-3*01|Macaca mulatta|F|D-REGION|1783..1813|31 nt|1| | | | |31+0=31| |rev-compl|
+agaatattgtagtagtacttactgctcctcc
+>NW_001121238|IGHD2-4*01|Macaca mulatta|F|D-REGION|259055..259085|31 nt|1| | | | |31+0=31| |rev-compl|
+agaatattgtagtggtatttactgctatgcc
+>NW_001121238|IGHD2-5*01|Macaca mulatta|F|D-REGION|249613..249643|31 nt|1| | | | |31+0=31| |rev-compl|
+agcacactgtagtgatagtggctgctcctcc
+>NW_001121238|IGHD2-6*01|Macaca mulatta|F|D-REGION|240149..240179|31 nt|1| | | | |31+0=31| |rev-compl|
+agcatattgtagtggtggtgtctgctacacc
+>NW_001121239|IGHD3-1*01|Macaca mulatta|ORF|D-REGION|8955..8996|42 nt|1| | | | |42+0=42| |rev-compl|
+gtattacgaggatgattacggttactattacacccacagcgt
+>NW_001121238|IGHD3-2*01|Macaca mulatta|ORF|D-REGION|256653..256688|36 nt|1| | | | |36+0=36| |rev-compl|
+gtattactatgatagtggttattacacccacagcgt
+>NW_001121238|IGHD3-3*01|Macaca mulatta|F|D-REGION|247249..247270|22 nt|1| | | | |22+0=22| |rev-compl|
+gtactggggtgattattatgac
+>NW_001121238|IGHD3-4*01|Macaca mulatta|F|D-REGION|237869..237905|37 nt|1| | | | |37+0=37| |rev-compl|
+gtattacgattacgatattagtagtcgatattaaacc
+>NW_001121238|IGHD4-1*01|Macaca mulatta|ORF|D-REGION|255523..255541|19 nt|1| | | | |19+0=19| |rev-compl|
+tgactacggtagcagctac
+>NW_001121238|IGHD4-2*01|Macaca mulatta|F|D-REGION|254553..254575|23 nt|1| | | | |23+0=23| |rev-compl|
+gtggatacagtgggtacagttac
+>NW_001121238|IGHD4-3*01|Macaca mulatta|F|D-REGION|246112..246127|16 nt|1| | | | |16+0=16| |rev-compl|
+tgactacggtaactac
+>NW_001121238|IGHD4-4*01|Macaca mulatta|F|D-REGION|236735..236750|16 nt|1| | | | |16+0=16| |rev-compl|
+tgaatacagtaactac
+>NW_001121239|IGHD5-1*01|Macaca mulatta|ORF|D-REGION|6847..6866|20 nt|1| | | | |20+0=20| |rev-compl|
+gtggatacagctacagttac
+>NW_001121238|IGHD5-2*01|Macaca mulatta|F|D-REGION|245158..245177|20 nt|1| | | | |20+0=20| |rev-compl|
+gtggatatagctacagttac
+>NW_001121238|IGHD5-3*01|Macaca mulatta|ORF|D-REGION|235763..235785|23 nt|1| | | | |23+0=23| |rev-compl|
+ggggatacagtgggtacagttac
+>NW_001121239|IGHD6-1*01|Macaca mulatta|F|D-REGION|15134..15154|21 nt|1| | | | |21+0=21| |rev-compl|
+gggtatagcagcggctggtac
+>NW_001121239|IGHD6-2*01|Macaca mulatta|F|D-REGION|4993..5010|18 nt|1| | | | |18+0=18| |rev-compl|
+gggtatagcagctggtcc
+>NW_001121238|IGHD6-3*01|Macaca mulatta|F|D-REGION|262843..262863|21 nt|1| | | | |21+0=21| |rev-compl|
+gggtatagcggcagctggaac
+>NW_001121238|IGHD6-4*01|Macaca mulatta|F|D-REGION|252231..252251|21 nt|1| | | | |21+0=21| |rev-compl|
+gggtatagcagcggctggtac
+>NW_001121238|IGHD6-5*01|Macaca mulatta|F|D-REGION|243281..243301|21 nt|1| | | | |21+0=21| |rev-compl|
+gggtatagcggtggctggtcc
+>NW_001121238|IGHD6-6*01|Macaca mulatta|F|D-REGION|233442..233459|18 nt|1| | | | |18+0=18| |rev-compl|
+gggtatagcagcagctac
+>NW_001121238|IGHD7-1*01|Macaca mulatta|F|D-REGION|212016..212026|11 nt|1| | | | |11+0=11| |rev-compl|
+ctaactgggga

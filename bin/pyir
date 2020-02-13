@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
-
-import pyir.arg_parse
-import pyir.factory
-import shutil
-import sys
-import tempfile
+import PyIR.factory as factory
+import os
 
 if __name__ == '__main__':
-
     try:
-
-        py_ir = pyir.factory.PyIr()
+        py_ir = factory.PyIR(is_api=False)
         py_ir.run()
 
     finally:
-
         try:
-            shutil.rmtree(py_ir.args['tmp_dir'] + '/')
+            if not py_ir.args['debug']:
+                for f in os.listdir(py_ir.args['tmp_dir']):
+                    if 'pyir_' in f:
+                        os.remove(os.path.join(py_ir.args['tmp_dir'], f))
+
             py_ir.pool.terminate()
         except:
             pass

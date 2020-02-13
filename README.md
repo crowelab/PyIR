@@ -1,258 +1,122 @@
-[![DOI](https://zenodo.org/badge/105039360.svg)](https://zenodo.org/badge/latestdoi/105039360)
-
 # PyIR
-Immunoglobulin and T-Cell receptor rearrangement software
+An IgBLAST wrapper and parser
 
-A Python wrapper for IgBLAST that scales to allow for the parallel processing of millions of reads on shared memory computers. All output is stored in a convenient JSON format.
+PyIR is a minimally-dependent high-speed wrapper for the IgBLAST immunoglobulin and T-cell analyzer. This is achieved 
+through chunking the input data set and running IgBLAST single-core in parallel to better utilize modern multi-core and 
+hyperthreaded  processors. 
 
-### Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires*
+PyIR has become an essential part of the Vanderbilt Vaccine Center workflow, and the requirements in the past few years 
+ has lead to the development of new features including:
+- Parsing algorithm refactorization
+- AIRR naming compliance
+- Updated IgBlast binary
+- Multiple output formats (including python dictionary)
+- Built-in sequence filtering
+- Simplified command-line interface
 
-**:exclamation: UPDATED March 8, 2019 :exclamation:** -- [Check the wiki page](https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts) for the latest files we've made available.
-
-### Quick Links
-
-#### [Install PyIR globally (for all users of your workstation)](#global-installation)
-
-#### [Install PyIR locally (for the user that you are currently logged in under)](#global-installation)
-
-#### [Building the databases that are used by PyIR](#building-the-database)
-
-#### [Using PyIR from bash](#usage)
-
-#### [Using PyIR as an api](#using-pyir-as-an-api)
-#### [Using PyIR in prebuilt Docker image](#using-a-docker-installation-of-pyir)
-
-Requires
-=========
-
-1. Python 3.6
-2. Pip version 10.0.1 or greater (python 3.6)
-3. MacOSX or Linux
-4. wget - Installed on many linux distributions by default. Available for mac through the homebrew package manager
+## Requires
+1. Linux
+2. Python 3
+3. Pip version >=10.0.1 and the following packages: [tqdm](https://github.com/tqdm/tqdm)
+4. Any requirements for [IgBLAST](https://ncbi.github.io/igblast/) (including glibc >= 2.14)
+5. wget, gawk
 
 
+## Installation
+PyIR is installed with the [pip](https://pip.pypa.io/en/stable/installing/) software packager, but is not 
+currently a part of the PyPI repository index. It can be manually downloaded and installed as followed:
 
-Installation
-=========
+### 1. Download the repository
+This repository can be downloaded by selecting "Download ZIP" from the "Clone and Download" menu at the top right of this github page or by using git from command line:
 
-**Download the repository**
-
-This repository can be downloaded by selecting "Download ZIP" from the "Clone and Download" menu at the top right of this github page or by using git from command line.
-
-If you have git installed you may use the command in order to place a copy of the github repo into your current directory.
 ```
 git clone https://github.com/crowelab/PyIR
 ```
 
-#### **Global Installation**
+### 2. Install with pip
 
-Ensure that pip is associated with the correct verison of python. If pip --version says that it is asscoiated with python version 2 then pip3 should be explicityly used instead of pip.
+#### Global Installation
+
 ```bash
 cd PyIR/
-sudo pip install .
-
+sudo pip3 install .
 ```
 
-#### **Local Installation**
+#### Local Installation
 
-Ensure that pip is associated with the correct verison of python. If pip --version says that it is asscoiated with python version 2 then pip3 should be explicityly used instead of pip.
 ```bash
 cd PyIR/
-pip install --user .
-
-```
-If installing locally confirm pythons local bin is in your path. If not you can add the the following to your ~/.bashrc
-```bash
-export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
-export PATH=$PY_USER_BIN:$PATH
+pip3 install --user .
 ```
 
-#### **Building the Database**
+#### Potential Issues:
+##### 1. Can't find pyir executable
+Locate your local bin folder with PyIR and add it to your PATH variable. ~/.local/bin and /usr/local/bin are good places
+to start. If using scl or other virtual environments (such as conda) be sure to account for those when searching your 
+directories.
 
-A shell script has been included in this repository which will build the databases and check to make sure that your installation is functioning properly. 
-You may run the included "SetupGermlineLibrary.sh" script in order to build the gerline library and load test data. If the setup is successful then a file will be created which is a gunzipped json file containing the output of PyIR for the setup scripts testcase.
+##### 2. Error with IgBLAST executable
+Double-check that you've met all prerequisites to install IgBLAST, including GLIBC > 2.14 (which has caused issues 
+with CentOS 6). If unsure
 
-```
-bash SetupGermlinLibrary.sh
-```
+##### 3. Installed correctly but packages are missing
+Ensure that the version of pip used to install pyir-plus is associated with the correct version of python you are 
+attempting to run. This can also be an issue with virtual environments.
 
-<!--
-```bash
-mkdir pyir_data
-cd pyir_data
 
-# Download igblast internal and aux data
-# All data can be manually downloaded here ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release or use the following convenience commands
-wget -mnH --cut-dirs=4 ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/internal_data ./
-wget -mnH --cut-dirs=5 --directory-prefix=aux ftp://ftp.ncbi.nih.gov/blast/executables/igblast/release/optional_file/ ./
 
-# Create Ig and TCR folders.
-mkdir -p Ig/human TCR/human
-```
+## Database Setup
 
-Go to http://www.imgt.org/vquest/refseqh.html and copy your human heavy **and** light genes into the following files
+PyIR-Plus requires a set of BLAST germline databases to assign the VDJ germlines.
 
-pyir_data/Ig/human/human_gl_V.fasta
-pyir_data/Ig/human/human_gl_D.fasta
-pyir_data/Ig/human/human_gl_J.fasta
+A snapshot of the IMGT/GENE-DB human immunome repertoire is included with PyIR-Plus, but users are recommended to build 
+their own database to keep up with the newest germline definitions. A link to the full instructions from NCBI can be 
+found [here](https://ncbi.github.io/igblast/cook/How-to-set-up.html), or you can use PyIR's setup script to build the 
+databases automatically:
 
-Once you've copied the data from IMGT, run the following commands to format the IMGT fastas into fastas makeblastdb can evaluate
 
 ```bash
-perl edit_imgt_file.pl pyir_data/Ig/human/human_gl_V.fasta > pyir_data/Ig/human/human_gl_V
-perl edit_imgt_file.pl pyir_data/Ig/human/human_gl_J.fasta > pyir_data/Ig/human/human_gl_J
-perl edit_imgt_file.pl pyir_data/Ig/human/human_gl_D.fasta > pyir_data/Ig/human/human_gl_D
+#Builds databases in pyir library directory
+pyir setup
+
+#Builds databases in specified path
+pyir setup -o path/
 ```
 
-PyIr comes packaged with PyIr/bin/makeblastdb_linux and PyIr/bin/makeblastdb_darwin. If on linux use makeblastdb_linux and if on mac use makeblastdb_darwin.
-Run the following commands to build the BLAST database from the fastas generated from the previous perl command.
+## Examples
 
+### CLI
 ```bash
-PyIR/bin/makeblastdb_linux -dbtype nucl -hash_index -parse_seqids -in pyir_data/Ig/human/human_gl_V
-PyIR/bin/makeblastdb_linux -dbtype nucl -hash_index -parse_seqids -in pyir_data/Ig/human/human_gl_J
-PyIR/bin/makeblastdb_linux -dbtype nucl -hash_index -parse_seqids -in pyir_data/Ig/human/human_gl_D
-```
-You can run PyIr the following way
+#Default PyIR
+pyir example.fasta
 
-```bash
-pyir PyIr/testing/1K_Seqs.fasta -d pyir_data
-```
--->
-## Usage
+#PyIR with filtering
+pyir example.fasta --enable_filter
 
-```
-usage: pyir [-h] -d DATABASE [-r {Ig,TCR}] [-s {human,mouse}]
-            [-nV NUM_V_ALIGNMENTS] [-nD NUM_D_ALIGNMENTS]
-            [-nJ NUM_J_ALIGNMENTS] [-mD MIND] [-cz CHUNK_SIZE] [-x EXECUTABLE]
-            [-m MULTI] [-o inputfile.json.gz] [--debug]
-            [--additional_field ADDITIONAL_FIELD] [-f json] [--pretty]
-            [--silent]
-            query.fasta
-
-A Python wrapper for IgBLAST that scales to allow for the parallel processing
-of millions of reads on shared memory computers. All output is stored in a
-convenient JSON format. Authors - Andre Branchizio, Jordan Willis, Jessica
-Finn
-
-optional arguments:
-  -h, --help            show this help message and exit
-
-Necessary Arguments:
-  Arguments that must be included
-
-  query.fasta           The fasta or fastq file to be run through the protocol
-
-File paths and types:
-  Database paths, search types
-
-  -d DATABASE, --database DATABASE
-                        Path to your blast database directory
-  -r {Ig,TCR}, --receptor {Ig,TCR}
-                        The receptor you are analyzing, immunoglobulin or t
-                        cell receptor
-  -s {human,mouse}, --species {human,mouse}
-                        The Species you are analyzing
-  -cz CHUNK_SIZE, --chunk_size CHUNK_SIZE
-                        How many sequences to work on at once. The higher the
-                        number the more memory needed. If none specified chunk
-                        size will be determined based on input file size
-
-BLAST Specific Arguments:
-  Arguments Specific to IgBlast
-
-  -nV NUM_V_ALIGNMENTS, --num_V_alignments NUM_V_ALIGNMENTS
-                        How many V genes do you want to match?
-  -nD NUM_D_ALIGNMENTS, --num_D_alignments NUM_D_ALIGNMENTS
-                        How many D genes do you want to match?, does not apply
-                        for kappa and lambda
-  -nJ NUM_J_ALIGNMENTS, --num_J_alignments NUM_J_ALIGNMENTS
-                        How many J genes do you want to match?
-  -mD MIND, --minD MIND
-                        The amount of nucleotide matches needed for a D gene
-                        match. >= 5 right now
-  -x EXECUTABLE, --executable EXECUTABLE
-                        The location of IGBlastn binary, the default location
-                        is determined based on the OS and uses the igblast
-                        binaries included in this application.
-
-General Arguments:
-  Output and Miscellaneous Arguments
-
-  -m MULTI, --multi MULTI
-                        Multiprocess by the amount of CPUs you have. Or you
-                        can enter a number or type 0 to turn it off
-  -o inputfile.json.gz, --out inputfile.json.gz
-                        Output_file_name, defaults to inputfile.json.gz
-  --debug               Debug mode, this will not delete the temporary blast
-                        files and will print some other useful things, like
-                        which regions did not parse
-  --additional_field ADDITIONAL_FIELD
-                        A comma key,value pair for an additional field you
-                        want to add to the output json. Example '--
-                        additional_field=donor,10` adds a donor field with
-                        value 10.
-  -f json, --out-format json
-                        Output file format, only json currently supported
-  --pretty              Pretty json output
-  --silent              Silence stdout
+#PyIR with custom BLAST database
+pyir example.fasta -d [path_to_DB]
 ```
 
-# Using PyIR as an api
-
+### API
 
 ```python
-import json
-import pyir.factory
-import tempfile
+import PyIR.factory as factory
+FILE = 'example.fasta'
 
-input_file = open('1K_Seqs.fasta', 'r')
-out_file = tempfile.NamedTemporaryFile(delete=True)
-num_procs = 4
-argument_overrides = {
-    'silent': True,
-    'database': 'Path/To/Database',
-    'query': input_file,
-    'out': out_file.name,
-    'multi': num_procs
-}
+pyir = factory.PyIR(query=FILE, args={'outfmt': 'dict'})
+result = pyir.run()
 
-py_ir = pyir.factory.PyIr(argument_overrides)
-result = py_ir.run()
-for line in result:
-    seq = json.loads(line)
-    # Do whatever you need with the resulting sequence
-    print(seq['Sequence ID'], seq['Top V gene match'] if 'Top V gene match' in seq else 'No match' )
+#Prints result as Python dictionary
+print(result)
 
-```
-# Using a docker installation of pyir
-PyIR is also available in a docker iamge with the needed dependencies installed. This section will include some basic usage information for the docker image.
+pyirfile = factory.PyIR(query=FILE)
+result = pyirfile.run()
 
-You can pull the docker image from dockerhub using the following:
-docker pull crowelab/pyir:latest 
-
-In order to run pyir on your local data you must share the folder that the files are in with the docker image and run it.
-The output files will be placed in the same folder as the input files.
-
-replace the things in all caps with the proper paths for your specific usecase.
-```
-docker run -v LOCALPATH:DOCKERPATH DOCKERPATH/FILENAME crowelab/pyir:latest
-```
-Additional arguments which are passed to the docker call will be passed to pyir (see above)
-If no filename is provided then it will automatically inculde a dataset that we have provided for testing
-
-
-If you would like to make modifications you can also build the docker image yourself by running the following in your current directory:
-```
-docker build . -t pyir:pyir 
+#Prints the output file
+print(result)
 ```
 
-To run your own image you can 
-```
-docker image run pyir:pyir ... (additional arguments)
-```
+## Test Files
 
-You can see additional information about the docker build here: https://cloud.docker.com/u/crowelab/repository/docker/crowelab/pyir
-
-______
-
-If you experience an issue using pyir or its docker iamge feel free to reach out to tech@vvcenter.org or open an issue on this github repo.
+Test files used for the BMC Bioinformatics paper can be found at:
+https://clonomatch.accre.vanderbilt.edu/pyirfiles/

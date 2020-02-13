@@ -1,0 +1,8 @@
+include ./PyIR/*
+include ./PyIR/data/*
+include ./PyIR/data/bin/*
+include ./PyIR/data/germlines/*
+include ./PyIR/data/germlines/Ig/human/*
+include ./PyIR/data/germlines/TCR/human/*
+include ./PyIR/data/germlines/aux_data/*
+include ./PyIR/data/germlines/internal_data/human/*
