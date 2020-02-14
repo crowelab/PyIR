@@ -145,5 +145,5 @@ print(result)
 
 ## Test Files
 
-Test files used for the BMC Bioinformatics paper can be found at:
+Test files used for the BMC Bioinformatics manuscript can be found at:
 https://clonomatch.accre.vanderbilt.edu/pyirfiles/
