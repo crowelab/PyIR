@@ -133,6 +133,14 @@ result = pyirfile.run()
 
 #Prints the output file
 print(result)
+
+#Example 4
+#Process example file in and return filepath to results in MIARR format
+pyirfile = factory.PyIR(query=FILE, args=['--outfmt', 'tsv'])
+result = pyirfile.run()
+
+#Prints the output file
+print(result)
 ```
 
 ## Test Files
