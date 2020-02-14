@@ -100,15 +100,34 @@ pyir example.fasta -d [path_to_DB]
 ### API
 
 ```python
+## Initialize PyIR and set example file for processing
 import PyIR.factory as factory
 FILE = 'example.fasta'
 
-pyir = factory.PyIR(query=FILE, args={'outfmt': 'dict'})
+## Example 1: Running PyIR on a fasta and getting filtered sequences back as Python dictionary
+pyir = factory.PyIR(query=FILE, args=['--outfmt', 'dict', '--enable_filter'])
 result = pyir.run()
 
-#Prints result as Python dictionary
-print(result)
+#Prints size of Python returned dictionary
+print(len(result))
 
+#Example 2
+#count the number of somatic variants per V3J clonotype in the returned results and print the top 10 results
+sv = {}
+for key, entry in result.items():
+    v3j = entry['v_family'] + '_' + entry['j_family'] + '_' + entry['cdr3_aa']
+    if v3j not in sv:
+        sv[v3j] = 0
+    sv[v3j] += 1
+
+for i,item in enumerate(sorted(sv.items(), key=lambda x: x[1], reverse=True)):
+    if i > 9:
+        break
+    v3j = item[0].split('_')
+    print('v:', v3j[0], 'j:', v3j[1], 'cdr3:', v3j[2], 'count:', item[1])
+
+#Example 3
+#Process example file and return filepath
 pyirfile = factory.PyIR(query=FILE)
 result = pyirfile.run()
 
