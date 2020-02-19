@@ -408,10 +408,10 @@ class PyIrArgumentParser():
 
     @staticmethod
     def _get_igdata_dir():
-        if 'IGDATA' in os.environ:
-            return os.environ['IGDATA']
-        elif os.path.exists(pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "PyIR/data/germlines")):
+        if os.path.exists(pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "PyIR/data/germlines")):
             return pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "PyIR/data/germlines")
+        elif 'IGDATA' in os.environ:
+            return os.environ['IGDATA']
         else:
             raise argparse.ArgumentTypeError("Missing IGDATA environment variable")
 
