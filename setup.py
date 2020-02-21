@@ -3,22 +3,22 @@ from distutils.core import setup
 
 setup(
     name='pyir',
-    version='0.2.0',
+    version='1.3.0',
     description='',
     author='Sam Day, Andre Branchizio, Jordan Willis, Jessica Finn, Taylor Jones, Sam Schmitz',
     author_email='andrejbranch@gmail.com, jwillis0720@gmail.com, strnad.bird@gmail.com, samuel.day@gmail.com',
     scripts=['./bin/pyir'],
     install_requires=['tqdm'],
-    packages=['PyIR'],
-    package_dir={'PyIR': './PyIR'},
-    package_data={'PyIR': ['PyIR/*',
-                                'PyIR/data/*',
-                                'PyIR/data/bin/*',
-                                'PyIR/data/germlines/*',
-                                'PyIR/data/germlines/aux_data/*',
-                                'PyIR/data/germlines/Ig/human/*',
-                                'PyIR/data/germlines/internal_data/human/*',
-                                'PyIR/data/germlines/TCR/human/*']
+    packages=['pyir'],
+    package_dir={'pyir': './pyir'},
+    package_data={'pyir': ['pyir/*',
+                                'pyir/data/*',
+                                'pyir/data/bin/*',
+                                'pyir/data/germlines/*',
+                                'pyir/data/germlines/aux_data/*',
+                                'pyir/data/germlines/Ig/human/*',
+                                'pyir/data/germlines/internal_data/human/*',
+                                'pyir/data/germlines/TCR/human/*']
                   },
     include_package_data=True
 )

@@ -101,12 +101,12 @@ pyir example.fasta -d [path_to_DB]
 
 ```python
 ## Initialize PyIR and set example file for processing
-import PyIR.factory as factory
+from pyir import PyIR
 FILE = 'example.fasta'
 
 ## Example 1: Running PyIR on a fasta and getting filtered sequences back as Python dictionary
-pyir = factory.PyIR(query=FILE, args=['--outfmt', 'dict', '--enable_filter'])
-result = pyir.run()
+pyirfiltered = PyIR(query=FILE, args=['--outfmt', 'dict', '--enable_filter'])
+result = pyirfiltered.run()
 
 #Prints size of Python returned dictionary
 print(len(result))
@@ -128,7 +128,7 @@ for i,item in enumerate(sorted(sv.items(), key=lambda x: x[1], reverse=True)):
 
 #Example 3
 #Process example file and return filepath
-pyirfile = factory.PyIR(query=FILE)
+pyirfile = PyIR(query=FILE)
 result = pyirfile.run()
 
 #Prints the output file
@@ -136,7 +136,7 @@ print(result)
 
 #Example 4
 #Process example file in and return filepath to results in MIARR format
-pyirfile = factory.PyIR(query=FILE, args=['--outfmt', 'tsv'])
+pyirfile = PyIR(query=FILE, args=['--outfmt', 'tsv'])
 result = pyirfile.run()
 
 #Prints the output file
