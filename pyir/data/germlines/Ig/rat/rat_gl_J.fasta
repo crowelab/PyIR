@@ -1,0 +1,30 @@
+>RatNor_6_chr6|IGHJ1*01|Rattus norvegicus_BN; Sprague-Dawley|F|J-REGION|654040..654095|56 nt|2| | || |56+0=56| |rev-compl|
+ctactactggtactttgacttctggggcccaggaaccatggtcaccgtgtcctcag
+>RatNor_6_chr6|IGHJ2*01|Rattus norvegicus_BN; Sprague-Dawley|F|J-REGION|653733..653782|50 nt|2| | || |50+0=50| |rev-compl|
+tgactactttgattactggggccaaggagtcatggtcacagtctcctcag
+>RatNor_6_chr6|IGHJ3*01|Rattus norvegicus_BN; Sprague-Dawley|F|J-REGION|653345..653395|51 nt|3| | || |51+0=51| |rev-compl|
+acaattggtttgcttactggggccaaggcactctggtcactgtctcttcag
+>RatNor_6_chr6|IGHJ4*01|Rattus norvegicus_BN; Sprague-Dawley|F|J-REGION|652773..652826|54 nt|3| | || |54+0=54| |rev-compl|
+attactatgttatggatgcctggggtcaaggagcttcagtcactgtctcctcag
+>J00746|IGKJ1*01|Rattus norvegicus_Louvain|F|J-REGION|168..205|38 nt|2| | | | |38+0=38| | |
+gtggacgttcggtggaggcaccaagctggaattgaaac
+>J00746|IGKJ2-1*01|Rattus norvegicus_Louvain|F|J-REGION|512..550|39 nt|3| | | | |39+0=39| | |
+tgaacacgtttggagctgggaccaagctggaactgaaac
+>J00746|IGKJ2-2*01|Rattus norvegicus_Louvain|F|J-REGION|857..895|39 nt|3| | | | |39+0=39| | |
+tggacacgtttggagctgggaccaagctggaactgaaac
+>J00746|IGKJ2-3*01|Rattus norvegicus_Louvain|F|J-REGION|1202..1240|39 nt|3| | | | |39+0=39| | |
+tgtacacgtttggagctgggaccaagctggaactgaaac
+>J00746|IGKJ3*01|Rattus norvegicus_Louvain|ORF|J-REGION|1484..1521|38 nt|2| | | | |38+0=38| | |
+aatcatgatcagtgatgagaccagactggaaataaaac
+>J00746|IGKJ4*01|Rattus norvegicus_Louvain|F|J-REGION|1842..1879|38 nt|2| | | | |38+0=38| | |
+attcacgttcggctcagggacgaagttggaaataaaac
+>J00746|IGKJ5*01|Rattus norvegicus_Louvain|F|J-REGION|2186..2223|38 nt|2| | | | |38+0=38| | |
+gctcacgttcggttctgggaccaagctggagatcaaac
+>AC111360|IGLJ1*01|Rattus norvegicus_BN/SsNHsdMCW|F|J-REGION|139372..139409|38 nt|2| | | | |38+0=38| | |
+ccctgttttcggtggtggaaccaagctcactgtcctag
+>AC111360|IGLJ2*01|Rattus norvegicus_BN/SsNHsdMCW|ORF|J-REGION|143359..143396|38 nt|2| | | | |38+0=38| | |
+ttgggtactcggtaaaggaaccagattgactgtcctag
+>AC111360|IGLJ3*01|Rattus norvegicus_BN/SsNHsdMCW|F|J-REGION|177415..177452|38 nt|2| | | | |38+0=38| | |
+ccctgttttcggtggtggaaccaagctcactgtcctag
+>AC111360|IGLJ4*01|Rattus norvegicus_BN/SsNHsdMCW|ORF|J-REGION|181138..181175|38 nt|2| | | | |38+0=38| | |
+ttgggtactcggtaaaggaaccagattgactgtcctag
