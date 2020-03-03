@@ -311,7 +311,7 @@ class PyIR():
                         for line in filein:
                             fout.write(line)
                 fout.seek(fout.tell()-2, 0)
-                fout.write('\n]')
+                fout.write('\n]\n')
             elif self.args['outfmt'] == 'tsv':
                 fout.write('\t'.join(self.outkeys) + '\n')
                 for f in list_of_files:
