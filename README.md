@@ -143,7 +143,9 @@ result = pyirfile.run()
 print(result)
 ```
 
-## Test Files
+## Files for testing and Manuscripts
 
 Test files used for the BMC Bioinformatics manuscript can be found at:
 https://clonomatch.accre.vanderbilt.edu/pyirfiles/
+
+Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires* and be found at: https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts
