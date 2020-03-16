@@ -261,40 +261,36 @@ class PyIR():
 
     def run_pool(self, input_files, total_seqs):
         """Creates a multiprocessing pool and runs all o"""
-        original_sigint_handler = signal.signal(signal.SIGINT, signal.SIG_IGN)
-        self.pool = multiprocessing.Pool(processes=self.num_procs)
-        signal.signal(signal.SIGINT, original_sigint_handler)
-
-        func = functools.partial(igblast.run, self.args)
-
-        results = []
-
-        if self.input_type == 'fasta':
-            pool_results = self.pool.imap_unordered(func, [x.name for x in input_files])
-        elif self.input_type == 'fastq':
-            pool_results = self.pool.imap_unordered(func, [(x[0].name,x[1].name) for x in input_files])
-
-        if not self.silent:
-            with tqdm.tqdm(total=total_seqs, unit='seq') as pbar:
-                for x in pool_results:
-                    if x[0]:
-                        pbar.update(x[1])
-                        results.append(x)
-                pbar.close()
-        else:
-            for x in pool_results:
-                results.append(x)
-
-        total_passed = 0
         output_files = []
+        with multiprocessing.Pool(processes=self.num_procs) as self.pool:
+            func = functools.partial(igblast.run, self.args)
 
-        for result in results:
-            output_files.append(result[0])
-            total_passed += result[3]
+            results = []
 
-        if self.use_filter:
+            if self.input_type == 'fasta':
+                pool_results = self.pool.imap_unordered(func, [x.name for x in input_files])
+            elif self.input_type == 'fastq':
+                pool_results = self.pool.imap_unordered(func, [(x[0].name,x[1].name) for x in input_files])
+
             if not self.silent:
-                print(total_passed, "Passed filtering")
+                with tqdm.tqdm(total=total_seqs, unit='seq') as pbar:
+                    for x in pool_results:
+                        if x[0]:
+                            pbar.update(x[1])
+                            results.append(x)
+                    pbar.close()
+            else:
+                for x in pool_results:
+                    results.append(x)
+
+            total_passed = 0
+            for result in results:
+                output_files.append(result[0])
+                total_passed += result[3]
+
+            if self.use_filter:
+                if not self.silent:
+                    print(total_passed, "Passed filtering")
 
         return output_files
 

@@ -15,7 +15,5 @@ if __name__ == '__main__':
                 for f in os.listdir(py_ir.args['tmp_dir']):
                     if 'pyir_' in f:
                         os.remove(os.path.join(py_ir.args['tmp_dir'], f))
-
-            py_ir.pool.terminate()
         except:
             pass
