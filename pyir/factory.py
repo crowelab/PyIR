@@ -262,15 +262,15 @@ class PyIR():
     def run_pool(self, input_files, total_seqs):
         """Creates a multiprocessing pool and runs all o"""
         output_files = []
-        with multiprocessing.Pool(processes=self.num_procs) as self.pool:
+        with multiprocessing.Pool(processes=self.num_procs) as p:
             func = functools.partial(igblast.run, self.args)
 
             results = []
 
             if self.input_type == 'fasta':
-                pool_results = self.pool.imap_unordered(func, [x.name for x in input_files])
+                pool_results = p.imap_unordered(func, [x.name for x in input_files])
             elif self.input_type == 'fastq':
-                pool_results = self.pool.imap_unordered(func, [(x[0].name,x[1].name) for x in input_files])
+                pool_results = p.imap_unordered(func, [(x[0].name,x[1].name) for x in input_files])
 
             if not self.silent:
                 with tqdm.tqdm(total=total_seqs, unit='seq') as pbar:

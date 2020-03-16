@@ -658,6 +658,8 @@ class LegacyParser():
                 self.total_parsed += 1
                 parser_index = 0
 
+        self.out_file.close()
+
 
 class AirrParser():
     def __init__(self, out_file, args):
@@ -726,3 +728,5 @@ class AirrParser():
                     self.total_passed += 1
 
                 self.total_parsed += 1
+
+        self.out_file.close()

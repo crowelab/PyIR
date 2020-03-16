@@ -91,7 +91,7 @@ class IgBlastRun():
                         if seq:
                             retval[id] = {'seq': seq}
                             seq = ''
-                        id = line[1:].strip('\n')
+                        id = line[1:].strip('\n').strip()
                     else:
                         seq += line.strip()
 
