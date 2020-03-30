@@ -91,13 +91,13 @@ class PyIR():
 
     def run_setup(self):
         if not os.path.exists(
-                pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "PyIR/data/bin")):
+                pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "pyir/data/bin")):
             raise FileNotFoundError("Missing package bin directory -- was PyIR installed correctly?")
 
         baseArgs = ['bash',
                     pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"),
-                                                    "PyIR/data/bin/SetupGermlineLibrary.sh"),
-                    pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "PyIR/data/bin"),
+                                                    "pyir/data/bin/SetupGermlineLibrary.sh"),
+                    pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "pyir/data/bin"),
                     self.output_folder]
 
         subprocess.run(baseArgs)
