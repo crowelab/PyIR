@@ -189,10 +189,7 @@ class PyIR():
                         seq += line.strip()
 
                     if lines/2 // self.chunk_size > index:
-                        if line.startswith('>'):
-                            line = fin.readline()
-                            lines += 1
-
+                        line = fin.readline()
                         while line and not line.startswith('>'):
                             lines += 1
                             seq += line.strip()
