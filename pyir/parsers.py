@@ -704,6 +704,18 @@ class AirrParser():
                 d['j_family'] = d['j_call'].split(',')[0].split('*')[0]
                 d['cdr3_aa_length'] = len(d['cdr3_aa'])
 
+                # FR4 check
+                if not d['fwr4'] and not d['fwr4_aa']:
+                    if d['cdr3'] and d['cdr3_aa'] and d['productive'] == 'T':
+                        matched_cdr3 = re.search(d['cdr3'], d['sequence_alignment'])
+                        matched_cdr3_aa = re.search(d['cdr3_aa'], d['sequence_alignment_aa'])
+                        if matched_cdr3 and matched_cdr3_aa:
+                            d['fwr4'] = d['sequence_alignment'][matched_cdr3.end():]
+                            d['fwr4_aa'] = d['sequence_alignment_aa'][matched_cdr3_aa.end():]
+                            if d['fwr4'] and d['fwr4_aa']:
+                                d['fwr4_start'] = re.search(d['fwr4'], d['sequence']).start()+1
+                                d['fwr4_end'] = re.search(d['fwr4'], d['sequence']).end()
+
                 if should_write:
                     if self.args['outfmt'] == 'lsjson':
                         if self.args['pretty']:
