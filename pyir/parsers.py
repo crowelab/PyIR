@@ -713,8 +713,10 @@ class AirrParser():
                             d['fwr4'] = d['sequence_alignment'][matched_cdr3.end():]
                             d['fwr4_aa'] = d['sequence_alignment_aa'][matched_cdr3_aa.end():]
                             if d['fwr4'] and d['fwr4_aa']:
-                                d['fwr4_start'] = re.search(d['fwr4'], d['sequence']).start()+1
-                                d['fwr4_end'] = re.search(d['fwr4'], d['sequence']).end()
+                                d['fwr4'] = d['fwr4'].replace('-', '')
+                                if re.search(d['fwr4'], d['sequence']):
+                                    d['fwr4_start'] = re.search(d['fwr4'], d['sequence']).start()+1
+                                    d['fwr4_end'] = re.search(d['fwr4'], d['sequence']).end()
 
                 if should_write:
                     if self.args['outfmt'] == 'lsjson':
