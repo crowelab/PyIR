@@ -729,4 +729,5 @@ class AirrParser():
 
                 self.total_parsed += 1
 
-        self.out_file.close()
+        if self.args['outfmt'] != 'dict':
+            self.out_file.close()
