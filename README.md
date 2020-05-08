@@ -16,7 +16,7 @@ PyIR has become an essential part of the Vanderbilt Vaccine Center workflow, and
 
 ## Requires
 1. Linux
-2. Python 3
+2. Python 3.6
 3. Pip version >=10.0.1 and the following packages: [tqdm](https://github.com/tqdm/tqdm)
 4. Any requirements for [IgBLAST](https://ncbi.github.io/igblast/) (including glibc >= 2.14)
 5. wget, gawk
