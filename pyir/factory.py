@@ -59,7 +59,7 @@ class PyIR():
                 self.output_file += '.tsv'
         else:
             self.output_folder = self.args['out'].rstrip('/\\') if self.args['out'] else \
-                pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "PyIR/data/germlines")
+                pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "pyir/data/germlines")
 
 
 #        IgBLAST Arguments

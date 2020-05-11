@@ -165,11 +165,11 @@ perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/human/human_gl_V.fasta > $OUTDIR/Ig/h
 perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/human/human_gl_J.fasta > $OUTDIR/Ig/human/human_gl_J
 perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/human/human_gl_D.fasta > $OUTDIR/Ig/human/human_gl_D
 
-cat $MAIN/IMGT/human/TRAV.fasta >> $OUTDIR/TCR/human/human_TCR_V.fasta
-cat $MAIN/IMGT/human/TRBV.fasta  > $OUTDIR/TCR/human/human_TCR_V.fasta
+cat $MAIN/IMGT/human/TRAV.fasta  > $OUTDIR/TCR/human/human_TCR_V.fasta
+cat $MAIN/IMGT/human/TRBV.fasta >> $OUTDIR/TCR/human/human_TCR_V.fasta
 
-cat $MAIN/IMGT/human/TRAJ.fasta >> $OUTDIR/TCR/human/human_TCR_J.fasta
-cat $MAIN/IMGT/human/TRBJ.fasta  > $OUTDIR/TCR/human/human_TCR_J.fasta
+cat $MAIN/IMGT/human/TRAJ.fasta  > $OUTDIR/TCR/human/human_TCR_J.fasta
+cat $MAIN/IMGT/human/TRBJ.fasta >> $OUTDIR/TCR/human/human_TCR_J.fasta
 
 cat $MAIN/IMGT/human/TRBD.fasta  > $OUTDIR/TCR/human/human_TCR_D.fasta
 
@@ -201,12 +201,12 @@ perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/mouse/mouse_gl_V.fasta > $OUTDIR/Ig/m
 perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/mouse/mouse_gl_J.fasta > $OUTDIR/Ig/mouse/mouse_gl_J
 perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/mouse/mouse_gl_D.fasta > $OUTDIR/Ig/mouse/mouse_gl_D
 
-cat $MAIN/IMGT/mouse/TRAV.fasta > $OUTDIR/TCR/mouse/mouse_TCR_V.fasta
+cat $MAIN/IMGT/mouse/TRAV.fasta  > $OUTDIR/TCR/mouse/mouse_TCR_V.fasta
 cat $MAIN/IMGT/mouse/TRBV.fasta >> $OUTDIR/TCR/mouse/mouse_TCR_V.fasta
 cat $MAIN/IMGT/mouse/TRDV.fasta >> $OUTDIR/TCR/mouse/mouse_TCR_V.fasta
 cat $MAIN/IMGT/mouse/TRGV.fasta >> $OUTDIR/TCR/mouse/mouse_TCR_V.fasta
 
-cat $MAIN/IMGT/mouse/TRAJ.fasta > $OUTDIR/TCR/mouse/mouse_TCR_J.fasta
+cat $MAIN/IMGT/mouse/TRAJ.fasta  > $OUTDIR/TCR/mouse/mouse_TCR_J.fasta
 cat $MAIN/IMGT/mouse/TRBJ.fasta >> $OUTDIR/TCR/mouse/mouse_TCR_J.fasta
 cat $MAIN/IMGT/mouse/TRDJ.fasta >> $OUTDIR/TCR/mouse/mouse_TCR_J.fasta
 cat $MAIN/IMGT/mouse/TRGJ.fasta >> $OUTDIR/TCR/mouse/mouse_TCR_J.fasta
@@ -242,12 +242,12 @@ perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/rabbit/rabbit_gl_V.fasta > $OUTDIR/Ig
 perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/rabbit/rabbit_gl_J.fasta > $OUTDIR/Ig/rabbit/rabbit_gl_J
 perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/rabbit/rabbit_gl_D.fasta > $OUTDIR/Ig/rabbit/rabbit_gl_D
 
-cat $MAIN/IMGT/rabbit/TRAV.fasta > $OUTDIR/TCR/rabbit/rabbit_TCR_V.fasta
+cat $MAIN/IMGT/rabbit/TRAV.fasta  > $OUTDIR/TCR/rabbit/rabbit_TCR_V.fasta
 cat $MAIN/IMGT/rabbit/TRBV.fasta >> $OUTDIR/TCR/rabbit/rabbit_TCR_V.fasta
 cat $MAIN/IMGT/rabbit/TRDV.fasta >> $OUTDIR/TCR/rabbit/rabbit_TCR_V.fasta
 cat $MAIN/IMGT/rabbit/TRGV.fasta >> $OUTDIR/TCR/rabbit/rabbit_TCR_V.fasta
 
-cat $MAIN/IMGT/rabbit/TRAJ.fasta > $OUTDIR/TCR/rabbit/rabbit_TCR_J.fasta
+cat $MAIN/IMGT/rabbit/TRAJ.fasta  > $OUTDIR/TCR/rabbit/rabbit_TCR_J.fasta
 cat $MAIN/IMGT/rabbit/TRBJ.fasta >> $OUTDIR/TCR/rabbit/rabbit_TCR_J.fasta
 cat $MAIN/IMGT/rabbit/TRDJ.fasta >> $OUTDIR/TCR/rabbit/rabbit_TCR_J.fasta
 cat $MAIN/IMGT/rabbit/TRGJ.fasta >> $OUTDIR/TCR/rabbit/rabbit_TCR_J.fasta
