@@ -57,7 +57,7 @@ directories.
 
 ##### 2. Error with IgBLAST executable
 Double-check that you've met all prerequisites to install IgBLAST, including GLIBC > 2.14 (which has caused issues 
-with CentOS 6). If unsure
+with CentOS 6) and libuv (can be installed with "sudo apt install libuv1.dev")
 
 ##### 3. Installed correctly but packages are missing
 Ensure that the version of pip used to install pyir is associated with the correct version of python you are 
