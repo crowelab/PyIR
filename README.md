@@ -60,7 +60,7 @@ Double-check that you've met all prerequisites to install IgBLAST, including GLI
 with CentOS 6). If unsure
 
 ##### 3. Installed correctly but packages are missing
-Ensure that the version of pip used to install pyir-plus is associated with the correct version of python you are 
+Ensure that the version of pip used to install pyir is associated with the correct version of python you are 
 attempting to run. This can also be an issue with virtual environments.
 
 
