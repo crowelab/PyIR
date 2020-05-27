@@ -22,6 +22,14 @@ PyIR has become an essential part of the Vanderbilt Vaccine Center workflow, and
 5. wget, gawk
 
 
+## Files for testing and Manuscripts
+
+Test files used for the BMC Bioinformatics manuscript can be found at:
+https://clonomatch.accre.vanderbilt.edu/pyirfiles/
+
+Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires* and be found at: https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts
+
+
 ## Installation
 PyIR is installed with the [pip](https://pip.pypa.io/en/stable/installing/) software packager, but is not 
 currently a part of the PyPI repository index. It can be manually downloaded and installed as followed:
@@ -67,9 +75,9 @@ attempting to run. This can also be an issue with virtual environments.
 
 ## Database Setup
 
-PyIR-Plus requires a set of BLAST germline databases to assign the VDJ germlines.
+PyIR requires a set of BLAST germline databases to assign the VDJ germlines.
 
-A snapshot of the IMGT/GENE-DB human immunome repertoire is included with PyIR-Plus, but users are recommended to build 
+A snapshot of the IMGT/GENE-DB human immunome repertoire is included with PyIR, but users are recommended to build 
 their own database to keep up with the newest germline definitions. A link to the full instructions from NCBI can be 
 found [here](https://ncbi.github.io/igblast/cook/How-to-set-up.html), or you can use PyIR's setup script to build the 
 databases automatically:
@@ -198,9 +206,6 @@ plt.bar(x, y, color="#a0814b")
 fig.savefig("synth01_cdr3length_distribution.svg", bbox_inches='tight', pad_inches=0)
 ```
 
-## Files for testing and Manuscripts
+## Contact
 
-Test files used for the BMC Bioinformatics manuscript can be found at:
-https://clonomatch.accre.vanderbilt.edu/pyirfiles/
-
-Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires* and be found at: https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts
+Email pyir@vvcenter.org with any questions or open an issue on Github and we'll get back to you.
