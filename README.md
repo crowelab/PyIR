@@ -97,22 +97,26 @@ pyir example.fasta --enable_filter
 pyir example.fasta -d [path_to_DB]
 ```
 
-### API
+### Example 1: Running PyIR on a fasta and getting filtered sequences back as Python dictionary
 
 ```python
 ## Initialize PyIR and set example file for processing
 from pyir import PyIR
 FILE = 'example.fasta'
 
-## Example 1: Running PyIR on a fasta and getting filtered sequences back as Python dictionary
 pyirfiltered = PyIR(query=FILE, args=['--outfmt', 'dict', '--enable_filter'])
 result = pyirfiltered.run()
 
 #Prints size of Python returned dictionary
 print(len(result))
+ ```
 
-#Example 2
-#count the number of somatic variants per V3J clonotype in the returned results and print the top 10 results
+### Example 2: count the number of somatic variants per V3J clonotype in the returned results and print the top 10 results
+```python
+## Initialize PyIR and set example file for processing
+from pyir import PyIR
+FILE = 'example.fasta'
+
 sv = {}
 for key, entry in result.items():
     v3j = entry['v_family'] + '_' + entry['j_family'] + '_' + entry['cdr3_aa']
@@ -125,17 +129,27 @@ for i,item in enumerate(sorted(sv.items(), key=lambda x: x[1], reverse=True)):
         break
     v3j = item[0].split('_')
     print('v:', v3j[0], 'j:', v3j[1], 'cdr3:', v3j[2], 'count:', item[1])
+```
 
-#Example 3
-#Process example file and return filepath
+### Example 3: Process example file and return filepath
+```python
+## Initialize PyIR and set example file for processing
+from pyir import PyIR
+FILE = 'example.fasta'
+
 pyirfile = PyIR(query=FILE)
 result = pyirfile.run()
 
 #Prints the output file
 print(result)
+```
 
-#Example 4
-#Process example file in and return filepath to results in MIARR format
+### Example 4: Process example file in and return filepath to results in MIARR format
+```python
+## Initialize PyIR and set example file for processing
+from pyir import PyIR
+FILE = 'example.fasta'
+
 pyirfile = PyIR(query=FILE, args=['--outfmt', 'tsv'])
 result = pyirfile.run()
 
