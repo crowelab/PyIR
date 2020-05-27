@@ -60,7 +60,7 @@ Double-check that you've met all prerequisites to install IgBLAST, including GLI
 with CentOS 6). If unsure
 
 ##### 3. Installed correctly but packages are missing
-Ensure that the version of pip used to install pyir-plus is associated with the correct version of python you are 
+Ensure that the version of pip used to install pyir is associated with the correct version of python you are 
 attempting to run. This can also be an issue with virtual environments.
 
 
@@ -99,20 +99,26 @@ pyir example.fasta -d [path_to_DB]
 
 ### API
 
+#### Example 1: Running PyIR on a fasta and getting filtered sequences back as Python dictionary
+
 ```python
 ## Initialize PyIR and set example file for processing
 from pyir import PyIR
 FILE = 'example.fasta'
 
-## Example 1: Running PyIR on a fasta and getting filtered sequences back as Python dictionary
 pyirfiltered = PyIR(query=FILE, args=['--outfmt', 'dict', '--enable_filter'])
 result = pyirfiltered.run()
 
 #Prints size of Python returned dictionary
 print(len(result))
+ ```
 
-#Example 2
-#count the number of somatic variants per V3J clonotype in the returned results and print the top 10 results
+#### Example 2: Count the number of somatic variants per V3J clonotype in the returned results and print the top 10 results
+```python
+## Initialize PyIR and set example file for processing
+from pyir import PyIR
+FILE = 'example.fasta'
+
 sv = {}
 for key, entry in result.items():
     v3j = entry['v_family'] + '_' + entry['j_family'] + '_' + entry['cdr3_aa']
@@ -125,22 +131,71 @@ for i,item in enumerate(sorted(sv.items(), key=lambda x: x[1], reverse=True)):
         break
     v3j = item[0].split('_')
     print('v:', v3j[0], 'j:', v3j[1], 'cdr3:', v3j[2], 'count:', item[1])
+```
 
-#Example 3
-#Process example file and return filepath
+#### Example 3: Process example file and return filepath
+```python
+## Initialize PyIR and set example file for processing
+from pyir import PyIR
+FILE = 'example.fasta'
+
 pyirfile = PyIR(query=FILE)
 result = pyirfile.run()
 
 #Prints the output file
 print(result)
+```
 
-#Example 4
-#Process example file in and return filepath to results in MIARR format
+#### Example 4: Process example file in and return filepath to results in MIARR format
+```python
+## Initialize PyIR and set example file for processing
+from pyir import PyIR
+FILE = 'example.fasta'
+
 pyirfile = PyIR(query=FILE, args=['--outfmt', 'tsv'])
 result = pyirfile.run()
 
 #Prints the output file
 print(result)
+```
+
+#### Example 5: Plot CDR3 length distribution histogram
+```python
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+from matplotlib.pyplot import figure
+## Initialize PyIR and set example file for processing
+from pyir import PyIR
+FILE = 'example.fasta'
+
+#create PyIR API instance and return Python dictionary
+pyirexample = PyIR(query=FILE, args=['--outfmt', 'dict', '--enable_filter'])
+result = pyirexample.run()
+
+cdr3lens = {}
+total_reads = 0
+
+#iterate over values returned by PyIR
+for key, entry in result.items():
+	clen = entry['cdr3_aa_length']
+	#if the CDR3 length is not in the dictionary, add it
+	if int(clen) not in cdr3lens.keys():
+		cdr3lens[int(clen)] = 0
+	#increment appropriate dictionary value and total
+	cdr3lens[int(clen)] += 1
+	total_reads += 1
+
+x = []
+y = []
+
+for xval in sorted(cdr3lens.keys()):
+	x.append(xval)
+	y.append(cdr3lens[xval]/total_reads)
+
+fig, ax = plt.subplots(1 , 1, dpi=600, facecolor='None', edgecolor='None')
+plt.bar(x, y, color="#a0814b")
+fig.savefig("synth01_cdr3length_distribution.svg", bbox_inches='tight', pad_inches=0)
 ```
 
 ## Files for testing and Manuscripts
