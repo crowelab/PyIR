@@ -6,7 +6,7 @@ setup(
     version='1.3.0',
     description='',
     author='Sam Day, Andre Branchizio, Jordan Willis, Jessica Finn, Taylor Jones, Sam Schmitz',
-    author_email='andrejbranch@gmail.com, jwillis0720@gmail.com, strnad.bird@gmail.com, samuel.day@gmail.com',
+    author_email='samuel.day@vumc.org, andrejbranch@gmail.com, jwillis0720@gmail.com, strnad.bird@gmail.com',
     scripts=['./bin/pyir'],
     install_requires=['tqdm'],
     packages=['pyir'],

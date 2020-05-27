@@ -12,6 +12,7 @@ import tqdm
 
 # IGBLAST_TSV_HEADER = ['sequence_id', 'sequence', 'locus', 'stop_codon', 'vj_in_frame', 'productive', 'rev_comp', 'v_call', 'd_call', 'j_call', 'sequence_alignment', 'germline_alignment', 'sequence_alignment_aa', 'germline_alignment_aa', 'v_alignment_start', 'v_alignment_end', 'd_alignment_start', 'd_alignment_end', 'j_alignment_start', 'j_alignment_end', 'v_sequence_alignment', 'v_sequence_alignment_aa', 'v_germline_alignment', 'v_germline_alignment_aa', 'd_sequence_alignment', 'd_sequence_alignment_aa', 'd_germline_alignment', 'd_germline_alignment_aa', 'j_sequence_alignment', 'j_sequence_alignment_aa', 'j_germline_alignment', 'j_germline_alignment_aa', 'fwr1', 'fwr1_aa', 'cdr1', 'cdr1_aa', 'fwr2', 'fwr2_aa', 'cdr2', 'cdr2_aa', 'fwr3', 'fwr3_aa', 'cdr3', 'cdr3_aa', 'junction', 'junction_length', 'junction_aa', 'junction_aa_length', 'v_score', 'd_score', 'j_score', 'v_cigar', 'd_cigar', 'j_cigar', 'v_support', 'd_support', 'j_support', 'v_identity', 'd_identity', 'j_identity', 'v_sequence_start', 'v_sequence_end', 'v_germline_start', 'v_germline_end', 'd_sequence_start', 'd_sequence_end', 'd_germline_start', 'd_germline_end', 'j_sequence_start', 'j_sequence_end', 'j_germline_start', 'j_germline_end', 'fwr1_start', 'fwr1_end', 'cdr1_start', 'cdr1_end', 'fwr2_start', 'fwr2_end', 'cdr2_start', 'cdr2_end', 'fwr3_start', 'fwr3_end', 'cdr3_start', 'cdr3_end', 'np1', 'np1_length', 'np2', 'np2_length']
 IGBLAST_TSV_HEADER = ['sequence_id', 'sequence', 'locus', 'stop_codon', 'vj_in_frame', 'productive', 'rev_comp', 'v_call', 'd_call', 'j_call', 'sequence_alignment', 'germline_alignment', 'sequence_alignment_aa', 'germline_alignment_aa', 'v_alignment_start', 'v_alignment_end', 'd_alignment_start', 'd_alignment_end', 'j_alignment_start', 'j_alignment_end', 'v_sequence_alignment', 'v_sequence_alignment_aa', 'v_germline_alignment', 'v_germline_alignment_aa', 'd_sequence_alignment', 'd_sequence_alignment_aa', 'd_germline_alignment', 'd_germline_alignment_aa', 'j_sequence_alignment', 'j_sequence_alignment_aa', 'j_germline_alignment', 'j_germline_alignment_aa', 'fwr1', 'fwr1_aa', 'cdr1', 'cdr1_aa', 'fwr2', 'fwr2_aa', 'cdr2', 'cdr2_aa', 'fwr3', 'fwr3_aa', 'fwr4', 'fwr4_aa', 'cdr3', 'cdr3_aa', 'junction', 'junction_length', 'junction_aa', 'junction_aa_length', 'v_score', 'd_score', 'j_score', 'v_cigar', 'd_cigar', 'j_cigar', 'v_support', 'd_support', 'j_support', 'v_identity', 'd_identity', 'j_identity', 'v_sequence_start', 'v_sequence_end', 'v_germline_start', 'v_germline_end', 'd_sequence_start', 'd_sequence_end', 'd_germline_start', 'd_germline_end', 'j_sequence_start', 'j_sequence_end', 'j_germline_start', 'j_germline_end', 'fwr1_start', 'fwr1_end', 'cdr1_start', 'cdr1_end', 'fwr2_start', 'fwr2_end', 'cdr2_start', 'cdr2_end', 'fwr3_start', 'fwr3_end', 'fwr4_start', 'fwr4_end', 'cdr3_start', 'cdr3_end', 'np1', 'np1_length', 'np2', 'np2_length']
+MAX_CHUNK_SIZE = 1000
 
 class PyIR():
     """The primary class for PyIR"""
@@ -50,6 +51,7 @@ class PyIR():
 
         if not self.setup:
             self.chunk_size = self.args['chunk_size'] if self.args['chunk_size'] else self.get_chunk_size()
+            print(self.chunk_size)
             self.tmp_dir = tempfile.mkdtemp(dir=self.args['tmp_dir'])
             self.args['tmp_dir'] = self.tmp_dir
             self.output_file = self.args['out'] if self.args['out'] else self.input_file.split('.')[0]
@@ -160,9 +162,9 @@ class PyIR():
         """Takes input file and uses file size to determine optimal chunk size."""
         input_file_size = os.stat(self.input_file).st_size
         if self.input_type == 'fasta':
-            return int((0.0000012360827411141800 * input_file_size) + 44.6)
+            return min(int((0.0000012360827411141800 * input_file_size) + 44.6), MAX_CHUNK_SIZE)
         elif self.input_type == 'fastq':
-            return int((0.0000006180413705570910 * input_file_size) + 44.6)
+            return min(int((0.0000006180413705570910 * input_file_size) + 44.6), MAX_CHUNK_SIZE)
 
     def split_input_file(self):
         num_seqs = 0
@@ -267,7 +269,7 @@ class PyIR():
             if self.input_type == 'fasta':
                 pool_results = p.imap_unordered(func, [x.name for x in input_files])
             elif self.input_type == 'fastq':
-                pool_results = p.imap_unordered(func, [(x[0].name,x[1].name) for x in input_files])
+                pool_results = p.imap_unordered(func, [(x[0].name, x[1].name) for x in input_files])
 
             if not self.silent:
                 with tqdm.tqdm(total=total_seqs, unit='seq') as pbar:
