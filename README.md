@@ -215,7 +215,7 @@ fig.savefig("synth01_cdr3length_distribution.svg", bbox_inches='tight', pad_inch
 ```
 
 #### Further Examples
-More examples can be found in the Wiki, such as (https://github.com/crowelab/PyIR/wiki/Additional-Data-for-API-examples)[creating a CDR3 Histogram] and (https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox)[Installing PyIR in VirtualBox]
+More examples can be found in the Wiki, such as [creating a CDR3 Histogram](https://github.com/crowelab/PyIR/wiki/Additional-Data-for-API-examples) and [Installing PyIR in VirtualBox](https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox)
 
 ## Contact
 
