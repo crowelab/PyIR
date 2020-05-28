@@ -77,7 +77,7 @@ Ensure that the version of pip used to install pyir is associated with the corre
 attempting to run. This can also be an issue with virtual environments.
 
 
-## Install With Virtual Box
+## Install With Virtual Box (Ubuntu)
 
 Instructions for installing PyIR with a VirtualBox container can be found [in the wiki](https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox)
 
