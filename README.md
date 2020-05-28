@@ -62,10 +62,6 @@ pip3 install --user .
 pip3 uninstall pyir
 ```
 
-## Install With Virtual Box
-
-Instructions for installing PyIR with a VirtualBox container can be found [in the wiki](https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox)
-
 #### Potential Issues:
 ##### 1. Can't find pyir executable
 Locate your local bin folder with PyIR and add it to your PATH variable. ~/.local/bin and /usr/local/bin are good places
@@ -81,6 +77,9 @@ Ensure that the version of pip used to install pyir is associated with the corre
 attempting to run. This can also be an issue with virtual environments.
 
 
+## Install With Virtual Box
+
+Instructions for installing PyIR with a VirtualBox container can be found [in the wiki](https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox)
 
 ## Database Setup
 
