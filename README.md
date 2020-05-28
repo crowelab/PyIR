@@ -94,6 +94,9 @@ pyir setup
 
 #Builds databases in specified path
 pyir setup -o path/
+
+#Builds databases in global pyir library directory (use if installed with sudo pip3)
+sudo pyir setup
 ```
 
 ## Examples
