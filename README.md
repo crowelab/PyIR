@@ -57,6 +57,11 @@ cd PyIR/
 pip3 install --user .
 ```
 
+#### Uninstall PyIR
+```
+pip3 uninstall pyir
+```
+
 #### Potential Issues:
 ##### 1. Can't find pyir executable
 Locate your local bin folder with PyIR and add it to your PATH variable. ~/.local/bin and /usr/local/bin are good places
