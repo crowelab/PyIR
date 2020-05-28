@@ -43,18 +43,18 @@ git clone https://github.com/crowelab/PyIR
 
 ### 2. Install with pip
 
+#### Local Installation (Recommended)
+
+```bash
+cd PyIR/
+pip3 install --user .
+```
+
 #### Global Installation
 
 ```bash
 cd PyIR/
 sudo pip3 install .
-```
-
-#### Local Installation
-
-```bash
-cd PyIR/
-pip3 install --user .
 ```
 
 #### Uninstall PyIR
