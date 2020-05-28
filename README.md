@@ -211,6 +211,9 @@ plt.bar(x, y, color="#a0814b")
 fig.savefig("synth01_cdr3length_distribution.svg", bbox_inches='tight', pad_inches=0)
 ```
 
+#### Further Examples
+More examples can be found in the Wiki, such as [https://github.com/crowelab/PyIR/wiki/Additional-Data-for-API-examples](creating a CDR3 Histogram) and [https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox](Installing PyIR in VirtualBox)
+
 ## Contact
 
 Email pyir@vvcenter.org with any questions or open an issue on Github and we'll get back to you.
