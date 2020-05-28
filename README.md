@@ -30,7 +30,7 @@ https://clonomatch.accre.vanderbilt.edu/pyirfiles/
 Files pertaining to the manuscript *High frequency of shared clonotypes in human B cell receptor repertoires* and be found at: https://github.com/crowelab/PyIR/wiki/Files-for-Manuscripts
 
 
-## Installation
+## Standard Installation
 PyIR is installed with the [pip](https://pip.pypa.io/en/stable/installing/) software packager, but is not 
 currently a part of the PyPI repository index. It can be manually downloaded and installed as followed:
 
@@ -61,6 +61,10 @@ pip3 install --user .
 ```
 pip3 uninstall pyir
 ```
+
+## Install With Virtual Box
+
+Instructions for installing PyIR with a VirtualBox container can be found [in the wiki](https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox)
 
 #### Potential Issues:
 ##### 1. Can't find pyir executable
