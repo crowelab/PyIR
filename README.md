@@ -14,7 +14,7 @@ PyIR has become an essential part of the Vanderbilt Vaccine Center workflow, and
 - Built-in sequence filtering
 - Simplified command-line interface
 
-PyIR is described at length in the *BMC Bioinformatics* article: [PyIR: a scalable wrapper for processing billions of immunoglobulin and T cell receptor sequences using IgBLAST](https://rdcu.be/b5Fvu)
+PyIR is described at length in the *BMC Bioinformatics* article: *[PyIR: a scalable wrapper for processing billions of immunoglobulin and T cell receptor sequences using IgBLAST](https://rdcu.be/b5Fvu)*
 
 ## Requires
 1. Linux
