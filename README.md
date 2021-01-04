@@ -226,3 +226,6 @@ More examples can be found in the Wiki, such as [creating a CDR3 Histogram](http
 
 Email pyir@vvcenter.org with any questions or open an issue on Github and we'll get back to you.
 
+## License
+
+PyIR is distributed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
