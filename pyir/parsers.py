@@ -591,10 +591,12 @@ class LegacyParser():
         parser_index = 0
         triggered = False
 
+        print('running:', cmd)
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
                                    universal_newlines=True)
 
         for line in process.stdout:
+            print(line)
             if line.isspace():
                 previous_line_whitespace = True
                 continue

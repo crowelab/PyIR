@@ -151,9 +151,9 @@ cd $MAIN
 #################
 # Human Ig and TCR DATA #
 #################
-cat $MAIN/IMGT/human/IGHV.fasta  > $OUTDIR/Ig/human/human_gl_V.fasta
-cat $MAIN/IMGT/human/IGKV.fasta >> $OUTDIR/Ig/human/human_gl_V.fasta
-cat $MAIN/IMGT/human/IGLV.fasta >> $OUTDIR/Ig/human/human_gl_V.fasta
+cat $MAIN/IMGT/human/IGHV.fasta  > $OUTDIR/Ig/human/human_V.fasta
+cat $MAIN/IMGT/human/IGKV.fasta >> $OUTDIR/Ig/human/human_V.fasta
+cat $MAIN/IMGT/human/IGLV.fasta >> $OUTDIR/Ig/human/human_V.fasta
 
 cat $MAIN/IMGT/human/IGHJ.fasta  > $OUTDIR/Ig/human/human_gl_J.fasta
 cat $MAIN/IMGT/human/IGKJ.fasta >> $OUTDIR/Ig/human/human_gl_J.fasta
@@ -161,7 +161,7 @@ cat $MAIN/IMGT/human/IGLJ.fasta >> $OUTDIR/Ig/human/human_gl_J.fasta
 
 cat $MAIN/IMGT/human/IGHD.fasta  > $OUTDIR/Ig/human/human_gl_D.fasta
 
-perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/human/human_gl_V.fasta > $OUTDIR/Ig/human/human_gl_V
+perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/human/human_V.fasta > $OUTDIR/Ig/human/human_gl_V
 perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/human/human_gl_J.fasta > $OUTDIR/Ig/human/human_gl_J
 perl $BASEDIR/edit_imgt_file.pl $OUTDIR/Ig/human/human_gl_D.fasta > $OUTDIR/Ig/human/human_gl_D
 
