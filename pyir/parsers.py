@@ -1,6 +1,7 @@
 from abc import ABCMeta, abstractmethod
 import collections
 import json
+import os
 import re
 from . import filters
 import subprocess
@@ -591,12 +592,10 @@ class LegacyParser():
         parser_index = 0
         triggered = False
 
-        print('running:', cmd)
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
-                                   universal_newlines=True)
+                                   universal_newlines=True, env=dict(os.environ, IGDATA=self.args['igdata']))
 
         for line in process.stdout:
-            print(line)
             if line.isspace():
                 previous_line_whitespace = True
                 continue
@@ -632,6 +631,7 @@ class LegacyParser():
             # If we match with the ending line, save our results and reset for next sequence
             if re.match(self.end_regex, line):
                 should_write = True
+                did_parse = True
                 if 'additional_field' in self.args and self.args['additional_field']:
                     self.current_d[self.args['additional_field'][0]] = self.args['additional_field'][1]
 

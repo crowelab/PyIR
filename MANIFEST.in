@@ -4,5 +4,6 @@ include ./pyir/data/bin/*
 include ./pyir/data/germlines/*
 include ./pyir/data/germlines/Ig/human/*
 include ./pyir/data/germlines/TCR/human/*
+include ./pyir/data/germlines/prot/human/*
 include ./pyir/data/germlines/aux_data/*
-include ./pyir/data/germlines/internal_data/human/*
+include ./pyir/data/germlines/internal_data/*/*

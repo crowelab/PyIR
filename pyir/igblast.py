@@ -41,9 +41,7 @@ class IgBlastRun():
         self.tmp_dir = args['tmp_dir']
         self.blast_outfmt = '3' if args['legacy'] else '19'
 
-        # Collect IgBLAST variables and prepare for
-        # _path_to_data_base = os.path.join(args['database'], args['receptor'], args['species'])
-        # suffix = 'TCR' if args['receptor'] == 'TCR' else 'gl'
+        # Collect IgBLAST variables and prepare for\
         self.collected_args = [
             args['executable'],
             '-num_alignments_V', args['num_V_alignments'],
@@ -52,9 +50,8 @@ class IgBlastRun():
             '-germline_db_V', args['germlineV'],
             '-outfmt', self.blast_outfmt,
             '-domain_system', 'imgt',
-            '-word_size', args['word_size'],
-            '-gapopen', '5',
-            '-gapextend', '2',
+            # '-gapopen', '5',
+            # '-gapextend', '2',
             '-num_alignments', '1',
             '-num_descriptions', '1',
             # '-penalty', '-1',
@@ -62,19 +59,20 @@ class IgBlastRun():
             '-num_threads', '1',
             '-extend_align5end']
 
-        # if args['']
-
         if args['sequence_type'] == 'nucl':
             self.collected_args.extend(['-num_alignments_D', args['num_D_alignments'], '-num_alignments_J',
-                                        '-auxiliary_data', os.path.join(args['aux'], args['species'] + '_gl.aux'),
-                                        args['num_J_alignments'], '-germline_db_D', args['germlineD'], '-germline_db_J',
-                                        args['germlineJ'], '-min_D_match', args['minD'], '-show_translation'])
+                                        args['num_J_alignments'], '-auxiliary_data',
+                                        os.path.join(args['aux'], args['species'] + '_gl.aux'), '-germline_db_D',
+                                        args['germlineD'], '-germline_db_J', args['germlineJ'], '-min_D_match',
+                                        args['minD'], '-show_translation'])
 
-        self.collected_args.extend('-query')
+        if args['word_size']:
+            self.collected_args.extend(['-word_size', args['word_size']])
+
+        self.collected_args.append('-query')
 
         self.input_type = args['input_type']
 
-        # self.use_memory = args['use_mem']
         self.use_filter = args['enable_filter']
 
         # Internal use variables
@@ -138,6 +136,9 @@ class IgBlastRun():
 
         # make sure this process is terminated on keyboard interrupt
         signal.signal(signal.SIGINT, self.signal_handler)
+
+        if self.args['print_args']:
+            print("running pyir with args:", ' '.join(collected_args))
 
         parser.parse(collected_args)
 

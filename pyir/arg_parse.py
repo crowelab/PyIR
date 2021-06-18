@@ -128,8 +128,17 @@ class PyIrArgumentParser():
             '--legacy',
             dest='legacy',
             default=False,
-            help='Legacy parsing & formatting. PyIR has a history that precedes the widespread adoption of AIRR'
+            help='Legacy parsing & formatting. PyIR has a history that precedes the widespread adoption of AIRR '
                  'formatting standards so the original parsing algorithm and fields are preserved under this flag.',
+            action='store_true'
+        )
+
+        general_args.add_argument(
+            '--print_args',
+            dest='print_args',
+            default=False,
+            help='Print the IgBLAST executable command with arguments. This can be helpful when debugging why PyIR '
+                 'isn\'t running correctly due to an IgBLAST error.',
             action='store_true'
         )
 
@@ -179,8 +188,8 @@ class PyIrArgumentParser():
             '--species',
             dest='species',
             default='human',
-            # choices=['human', 'mouse', 'rabbit', 'rat', 'rhesus_monkey'],
-            choices=['human'],
+            choices=['human', 'mouse', 'rabbit', 'rat', 'rhesus_monkey'],
+            # choices=['human'],
             help='The Species you are analyzing'
         )
 
@@ -272,8 +281,8 @@ class PyIrArgumentParser():
             "--word_size",
             dest='word_size',
             type=str,
-            default="11",
-            help="The Igblast word size to use. Default is 11"
+            default=None,
+            help="The Igblast word size to use"
         )
 
         filter_args = self.arg_parse.add_argument_group(
