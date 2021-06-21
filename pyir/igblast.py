@@ -50,12 +50,8 @@ class IgBlastRun():
             '-germline_db_V', args['germlineV'],
             '-outfmt', self.blast_outfmt,
             '-domain_system', 'imgt',
-            # '-gapopen', '5',
-            # '-gapextend', '2',
             '-num_alignments', '1',
             '-num_descriptions', '1',
-            # '-penalty', '-1',
-            # '-reward', '1',
             '-num_threads', '1',
             '-extend_align5end']
 
@@ -69,10 +65,21 @@ class IgBlastRun():
         if args['word_size']:
             self.collected_args.extend(['-word_size', args['word_size']])
 
+        if args['gapopen']:
+            self.collected_args.extend(['-gapopen', args['gapopen']])
+
+        if args['penalty']:
+            self.collected_args.extend(['-penalty', args['penalty']])
+
+        if args['reward']:
+            self.collected_args.extend(['-reward', args['reward']])
+
         self.collected_args.append('-query')
 
-        self.input_type = args['input_type']
+        if self.args['print_args']:
+            print("running pyir with args:", ' '.join(self.collected_args + [args['query']]))
 
+        self.input_type = args['input_type']
         self.use_filter = args['enable_filter']
 
         # Internal use variables
@@ -136,9 +143,6 @@ class IgBlastRun():
 
         # make sure this process is terminated on keyboard interrupt
         signal.signal(signal.SIGINT, self.signal_handler)
-
-        if self.args['print_args']:
-            print("running pyir with args:", ' '.join(collected_args))
 
         parser.parse(collected_args)
 

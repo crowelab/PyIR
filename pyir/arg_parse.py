@@ -282,7 +282,39 @@ class PyIrArgumentParser():
             dest='word_size',
             type=str,
             default=None,
-            help="The Igblast word size to use"
+            help="The IgBLAST word size to use"
+        )
+
+        blast_arguments.add_argument(
+            "--gapopen",
+            dest='gapopen',
+            type=str,
+            default=None,
+            help="The IgBLAST gapopen value to use"
+        )
+
+        blast_arguments.add_argument(
+            "--gapextend",
+            dest='gapextend',
+            type=str,
+            default=None,
+            help="The IgBLAST gapextend value to use"
+        )
+
+        blast_arguments.add_argument(
+            "--reward",
+            dest='reward',
+            type=str,
+            default=None,
+            help="The IgBLAST reward value to use"
+        )
+
+        blast_arguments.add_argument(
+            "--penalty",
+            dest='penalty',
+            type=str,
+            default=None,
+            help="The IgBLAST penalty value to use"
         )
 
         filter_args = self.arg_parse.add_argument_group(
