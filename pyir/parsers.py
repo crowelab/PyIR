@@ -682,7 +682,8 @@ class AirrParser():
 
     def parse(self, cmd):
         first = True
-        process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, universal_newlines=True)
+        process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                                   universal_newlines=True, env=dict(os.environ, IGDATA=self.args['igdata']))
         for line in process.stdout:
             linesplit = line.strip('\n').split('\t')
             if first:
