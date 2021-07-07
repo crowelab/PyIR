@@ -51,6 +51,7 @@ class PyIrArgumentParser():
             default='nucl',
             choices=['nucl','prot'],
             help='Type of sequence being analyzed. Protein sequences can only be searched with the legacy output'
+                + ' enabled AND the species option as human'
         )
 
         general_args.add_argument(
@@ -189,7 +190,6 @@ class PyIrArgumentParser():
             dest='species',
             default='human',
             choices=['human', 'mouse', 'rabbit', 'rat', 'rhesus_monkey'],
-            # choices=['human'],
             help='The Species you are analyzing'
         )
 
@@ -427,6 +427,9 @@ class PyIrArgumentParser():
         if arguments.sequence_type == 'prot' and not arguments.legacy:
             raise argparse.ArgumentTypeError("Sequence type set to protein but --legacy flag not set. Set --legacy "
                                              "flag to analyze protein sequences")
+        elif arguments.sequence_type == 'prot' and arguments.species != 'human':
+            raise argparse.ArgumentTypeError("Sequence type set to protein but species is not human. Set -s "
+                                             "flag to human")
 
 
         return arguments.__dict__
