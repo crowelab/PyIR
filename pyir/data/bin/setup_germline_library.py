@@ -5,6 +5,7 @@ import sys
 from os import path
 import argparse
 import urllib.request
+import subprocess
 from subprocess import run
 
 SPECIES = [{
@@ -86,6 +87,7 @@ elif 'darwin' in sys.platform:
 else:
     raise ValueError('Unsupported system platform: ' + sys.platform + ". Run setup_germline_library.py on a Linux or "
                                                                        "OSX machine")
+print('setup args:', args)
 
 for species in SPECIES:
     for gene_locus in ['ig', 'tcr']:
@@ -100,7 +102,7 @@ for species in SPECIES:
 
         for gene in species[gene_locus]:
             gene_file = path.join(args.outdir, outdir_subfolder, species['name'], species['name'] + '_' + gene_file_ext + '_' + gene + '.fasta')
-            gene_db = gene_file.split('.')[0]
+            gene_db = path.join(path.dirname(gene_file), path.basename(gene_file).split('.')[0])
             with open(gene_file, 'w') as fasta_out:
                 for locus in species[gene_locus][gene]:
                     locus_url = 'http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/' + \
@@ -111,7 +113,6 @@ for species in SPECIES:
                         line = line.decode('utf-8')
                         if line[0] == '>':
                             ls = line.strip().split('|')
-                            # print(species['imgt_name'], ls[2])
                             if species['imgt_name'].replace('_',' ') in ls[2]:
                                 fasta_out.write('>' + ls[1] + '\n')
                                 write_out = True
@@ -120,5 +121,8 @@ for species in SPECIES:
                         elif write_out:
                             fasta_out.write(line.replace('.',''))
 
-            run([path.join(args.basedir,'makeblastdb_' + platform), '-dbtype', 'nucl', '-hash_index', '-parse_seqids',
-                 '-in', gene_file, '-out', gene_db, '-title', gene_db])
+            result = run([path.join(args.basedir,'makeblastdb_' + platform), '-dbtype', 'nucl', '-hash_index', '-parse_seqids',
+                 '-in', gene_file, '-out', gene_db, '-title', gene_db], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                         universal_newlines=True)
+
+            print(result.stdout)
