@@ -42,7 +42,16 @@ class PyIrArgumentParser():
             '--input_type',
             dest='input_type',
             choices=['fasta', 'fastq'],
-            help='Type of file to process. Default is inferred from the file extension ()'
+            help='Type of file to process. Default is inferred from the file extension'
+        )
+
+        general_args.add_argument(
+            '--sequence_type',
+            dest='sequence_type',
+            default='nucl',
+            choices=['nucl','prot'],
+            help='Type of sequence being analyzed. Protein sequences can only be searched with the legacy output'
+                + ' enabled AND the species option as human'
         )
 
         general_args.add_argument(
@@ -120,9 +129,17 @@ class PyIrArgumentParser():
             '--legacy',
             dest='legacy',
             default=False,
-            help='Legacy parsing & formatting. PyIR has a history that precedes the widespread adoption of AIRR'
-                 'formatting standards so the original parsing algorithm and fields are preserved under this flag.'
-                 'WARNING: These fields are deprecated and will be unsupported at a later date, use at your own risk',
+            help='Legacy parsing & formatting. PyIR has a history that precedes the widespread adoption of AIRR '
+                 'formatting standards so the original parsing algorithm and fields are preserved under this flag.',
+            action='store_true'
+        )
+
+        general_args.add_argument(
+            '--print_args',
+            dest='print_args',
+            default=False,
+            help='Print the IgBLAST executable command with arguments. This can be helpful when debugging why PyIR '
+                 'isn\'t running correctly due to an IgBLAST error.',
             action='store_true'
         )
 
@@ -142,9 +159,9 @@ class PyIrArgumentParser():
             "-x",
             '--executable',
             dest='executable',
-            default=self.get_igblast(),
+            default='',
             type=str,
-            help="The location of IgBlast binaries. Default is " + self.get_igblast()
+            help="The location of IgBlast binaries. Default is the supplied binaries with PyIR"
         )
 
         path_arguments.add_argument(
@@ -172,8 +189,7 @@ class PyIrArgumentParser():
             '--species',
             dest='species',
             default='human',
-            # choices=['human', 'mouse', 'rabbit', 'rat', 'rhesus_monkey'],
-            choices=['human'],
+            choices=['human', 'mouse', 'rabbit', 'rat', 'rhesus_monkey'],
             help='The Species you are analyzing'
         )
 
@@ -265,8 +281,40 @@ class PyIrArgumentParser():
             "--word_size",
             dest='word_size',
             type=str,
-            default="11",
-            help="The Igblast word size to use. Default is 11"
+            default=None,
+            help="The IgBLAST word size to use"
+        )
+
+        blast_arguments.add_argument(
+            "--gapopen",
+            dest='gapopen',
+            type=str,
+            default=None,
+            help="The IgBLAST gapopen value to use"
+        )
+
+        blast_arguments.add_argument(
+            "--gapextend",
+            dest='gapextend',
+            type=str,
+            default=None,
+            help="The IgBLAST gapextend value to use"
+        )
+
+        blast_arguments.add_argument(
+            "--reward",
+            dest='reward',
+            type=str,
+            default=None,
+            help="The IgBLAST reward value to use"
+        )
+
+        blast_arguments.add_argument(
+            "--penalty",
+            dest='penalty',
+            type=str,
+            default=None,
+            help="The IgBLAST penalty value to use"
         )
 
         filter_args = self.arg_parse.add_argument_group(
@@ -360,7 +408,12 @@ class PyIrArgumentParser():
 
         os.environ['IGDATA'] = arguments.igdata
         self._set_germline_databases(arguments)
+
+        #Default case
+        if arguments.executable == '':
+            arguments.executable = self.get_igblast(arguments.sequence_type)
         self._validate_executable(arguments.executable)
+
         if not arguments.input_type:
             if '.fastq' in arguments.query:
                 arguments.input_type = 'fastq'
@@ -370,6 +423,14 @@ class PyIrArgumentParser():
                 if not arguments.silent:
                     print('Warning: Input type unable to be inferred, defaulting to fasta')
                 arguments.input_type = 'fasta'
+
+        if arguments.sequence_type == 'prot' and not arguments.legacy:
+            raise argparse.ArgumentTypeError("Sequence type set to protein but --legacy flag not set. Set --legacy "
+                                             "flag to analyze protein sequences")
+        elif arguments.sequence_type == 'prot' and arguments.species != 'human':
+            raise argparse.ArgumentTypeError("Sequence type set to protein but species is not human. Set -s "
+                                             "flag to human")
+
 
         return arguments.__dict__
 
@@ -387,14 +448,15 @@ class PyIrArgumentParser():
         if os.path.exists(os.path.abspath(path)):
             os.environ['IGDATA'] = os.path.abspath(path)
             return os.path.abspath(path)
-        raise argparse.ArgumentTypeError("{0} does not exist. Did you use setup.py correctly? Or do you have another location?".format(path))
+        raise argparse.ArgumentTypeError("{0} does not exist. Did you use setup.py correctly? "
+                                         "Or do you have another location?".format(path))
 
     @staticmethod
     def _validate_executable(path):
         """Checks that the given igblast executable folder exists"""
         if path and os.path.exists(os.path.abspath(path)):
             return os.path.abspath(path)
-        raise argparse.ArgumentTypeError("{0} does not exists, please point to where igblastn is".format(path))
+        raise argparse.ArgumentTypeError("{0} does not exists, please point to where igblastn_linux is".format(path))
 
     @staticmethod
     def _additional_field_parse(keyvaluestring):
@@ -425,13 +487,23 @@ class PyIrArgumentParser():
             subprocess.call([path, '-h'])
             sys.exit()
 
-    def get_igblast(self):
+    def get_igblast(self, sequence_type):
         """Checks that the given IGBlast executable exists"""
         igblast_dir = pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "pyir/data/bin")
         if 'linux' in sys.platform:
-            return self.test_igblast(os.path.join(igblast_dir,'igblastn_linux'))
+            if sequence_type == 'nucl':
+                return self.test_igblast(os.path.join(igblast_dir,'igblastn_linux'))
+            elif sequence_type == 'prot':
+                return self.test_igblast(os.path.join(igblast_dir,'igblastp_linux'))
+            else:
+                raise ValueError("Invalid sequence_type provided: ", sequence_type)
         elif 'darwin' in sys.platform:
-            return self.test_igblast(os.path.join(igblast_dir,'igblastn_darwin'))
+            if sequence_type == 'nucl':
+                return self.test_igblast(os.path.join(igblast_dir,'igblastn_darwin'))
+            elif sequence_type == 'prot':
+                return self.test_igblast(os.path.join(igblast_dir,'igblastp_darwin'))
+            else:
+                raise ValueError("Invalid sequence_type provided: ", sequence_type)
         else:
             print('No IGBlast found for platform: {0} -- exiting...'.format(sys.platform))
             return None
@@ -462,12 +534,20 @@ class PyIrArgumentParser():
 
     @staticmethod
     def _set_germline_databases(args):
-        pathbase = os.path.join(args.igdata, args.receptor, args.species)
-
         suffix = 'TCR' if args.receptor == 'TCR' else 'gl'
-        if not args.germlineV:
-            args.germlineV = os.path.join(pathbase, args.species + '_' + suffix + '_V')
-        if not args.germlineD:
-            args.germlineD = os.path.join(pathbase, args.species + '_' + suffix + '_D')
-        if not args.germlineJ:
-            args.germlineJ = os.path.join(pathbase, args.species + '_' + suffix + '_J')
+        if args.sequence_type == 'nucl':
+            pathbase = os.path.join(args.igdata, args.receptor, args.species)
+            if not args.germlineV:
+                args.germlineV = os.path.join(pathbase, args.species + '_' + suffix + '_V')
+            if not args.germlineD:
+                args.germlineD = os.path.join(pathbase, args.species + '_' + suffix + '_D')
+            if not args.germlineJ:
+                args.germlineJ = os.path.join(pathbase, args.species + '_' + suffix + '_J')
+        else:
+            pathbase = os.path.join(args.igdata, 'prot', args.species)
+            if not args.germlineV:
+                args.germlineV = os.path.join(pathbase, args.species + '_V')
+            if not args.germlineD:
+                args.germlineD = ''
+            if not args.germlineJ:
+                args.germlineJ = ''

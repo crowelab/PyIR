@@ -101,9 +101,18 @@ class PyIRFilters:
                     print("AA failed -- AA:", seq_dict['AA'])
                 return False
         else:
-            if '*' not in seq_dict['sequence_alignment_aa'] and seq_dict['cdr3_aa'] and \
-                    re.search(AA_PATTERN, seq_dict['sequence_alignment_aa'].split(seq_dict['cdr3_aa'])[1]):
-                return True
+            if '*' not in seq_dict['sequence_alignment_aa'] and seq_dict['cdr3_aa'] != '':
+                cdr3_split = seq_dict['sequence_alignment_aa'].split(seq_dict['cdr3_aa'])
+                if len(cdr3_split) < 2:
+                    if re.search(AA_PATTERN, seq_dict['cdr3_aa'][:-5 if len(seq_dict['cdr3_aa']) >= 5 else -1*(len(seq_dict['cdr3_aa'])-1)]):
+                        return True
+                    else:
+                        return False
+                else:
+                    if re.search(AA_PATTERN, seq_dict['sequence_alignment_aa'].split(seq_dict['cdr3_aa'])[1]):
+                        return True
+                    else:
+                        return False
             else:
                 if self.debug:
                     print("AA failed -- AA:", seq_dict['sequence_alignment_aa'])

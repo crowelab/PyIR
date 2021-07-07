@@ -41,38 +41,45 @@ class IgBlastRun():
         self.tmp_dir = args['tmp_dir']
         self.blast_outfmt = '3' if args['legacy'] else '19'
 
-        # Collect IgBLAST variables and prepare for
-        # _path_to_data_base = os.path.join(args['database'], args['receptor'], args['species'])
-        # suffix = 'TCR' if args['receptor'] == 'TCR' else 'gl'
+        # Collect IgBLAST variables and prepare for\
         self.collected_args = [
             args['executable'],
-            '-min_D_match', args['minD'],
             '-num_alignments_V', args['num_V_alignments'],
-            '-num_alignments_D', args['num_D_alignments'],
-            '-num_alignments_J', args['num_J_alignments'],
             '-organism', args['species'],
             '-ig_seqtype', args['receptor'],
             '-germline_db_V', args['germlineV'],
-            '-germline_db_D', args['germlineD'],
-            '-germline_db_J', args['germlineJ'],
-            '-auxiliary_data', os.path.join(args['aux'], args['species'] + '_gl.aux'),
             '-outfmt', self.blast_outfmt,
             '-domain_system', 'imgt',
-            '-word_size', args['word_size'],
-            '-gapopen', '5',
-            '-gapextend', '2',
             '-num_alignments', '1',
             '-num_descriptions', '1',
-            # '-penalty', '-1',
-            # '-reward', '1',
             '-num_threads', '1',
-            '-show_translation',
-            '-extend_align5end',
-            '-query']
+            '-extend_align5end']
+
+        if args['sequence_type'] == 'nucl':
+            self.collected_args.extend(['-num_alignments_D', args['num_D_alignments'], '-num_alignments_J',
+                                        args['num_J_alignments'], '-auxiliary_data',
+                                        os.path.join(args['aux'], args['species'] + '_gl.aux'), '-germline_db_D',
+                                        args['germlineD'], '-germline_db_J', args['germlineJ'], '-min_D_match',
+                                        args['minD'], '-show_translation'])
+
+        if args['word_size']:
+            self.collected_args.extend(['-word_size', args['word_size']])
+
+        if args['gapopen']:
+            self.collected_args.extend(['-gapopen', args['gapopen']])
+
+        if args['penalty']:
+            self.collected_args.extend(['-penalty', args['penalty']])
+
+        if args['reward']:
+            self.collected_args.extend(['-reward', args['reward']])
+
+        self.collected_args.append('-query')
+
+        if self.args['print_args']:
+            print("running pyir with args:", ' '.join(self.collected_args + [args['query']]))
 
         self.input_type = args['input_type']
-
-        # self.use_memory = args['use_mem']
         self.use_filter = args['enable_filter']
 
         # Internal use variables
