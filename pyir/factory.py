@@ -60,7 +60,7 @@ class PyIR():
                 self.output_file += '.tsv'
         else:
             self.output_folder = self.args['out'].rstrip('/\\') if self.args['out'] else \
-                pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "pyir/data/germlines")
+                pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"), "crowelab_pyir/data/germlines")
 
 
 #        IgBLAST Arguments
@@ -92,12 +92,12 @@ class PyIR():
 
     def run_setup(self):
         if not os.path.exists(
-                pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "pyir/data/bin")):
+                pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"), "crowelab_pyir/data/bin")):
             raise FileNotFoundError("Missing package bin directory -- was PyIR installed correctly?")
 
-        baseArgs = [sys.executable, pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"),
-                                                    "pyir/data/bin/setup_germline_library.py"),
-                    pkg_resources.resource_filename(pkg_resources.Requirement.parse("pyir"), "pyir/data/bin"),
+        baseArgs = [sys.executable, pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"),
+                                                    "crowelab_pyir/data/bin/setup_germline_library.py"),
+                    pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"), "crowelab_pyir/data/bin"),
                     self.output_folder]
 
         subprocess.run(baseArgs)
