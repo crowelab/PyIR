@@ -27,8 +27,11 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Build Tools',
-        'License :: Creative Commons Attribution 4.0',
+        'Environment :: Console',
+        'Environment :: MacOS X',
+        'Topic :: Scientific/Engineering :: Bio-Informatics',
+        'License :: Other/Proprietary License',
+        'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',

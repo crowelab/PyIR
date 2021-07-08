@@ -4,3 +4,4 @@ pyir.egg-info/
 .DS_Store
 testing/*.json*
 _config.yml
+dist/
