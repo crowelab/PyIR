@@ -16,6 +16,11 @@ PyIR has become an essential part of the Vanderbilt Vaccine Center workflow, and
 
 PyIR is described at length in the *BMC Bioinformatics* article: *[PyIR: a scalable wrapper for processing billions of immunoglobulin and T cell receptor sequences using IgBLAST](https://rdcu.be/b5Fvu)*
 
+## :diamond_shape_with_a_dot_inside::diamond_shape_with_a_dot_inside: 2021-07-09 Update :diamond_shape_with_a_dot_inside::diamond_shape_with_a_dot_inside:
+- Support for non-human species
+- Package is listed on pip for distribution (under crowelab_pyir repository)
+- Blastp support for human sequences
+
 ## Requires
 1. Linux
 2. Python 3.6
@@ -36,7 +41,7 @@ Files pertaining to the manuscript *High frequency of shared clonotypes in human
 PyIR is installed with the [pip](https://pip.pypa.io/en/stable/installing/) software packager, but is not 
 currently a part of the PyPI repository index. It can be manually downloaded and installed as followed:
 
-### 1. Download the repository
+### 1. Download the repository (optional)
 This repository can be downloaded by selecting "Download ZIP" from the "Clone and Download" menu at the top right of this github page or by using git from command line:
 
 ```
@@ -45,14 +50,20 @@ git clone https://github.com/crowelab/PyIR
 
 ### 2. Install with pip
 
-#### Local Installation (Recommended)
+#### Install from pypi repository (Recommended)
+
+```bash
+pip3 install crowelab_pyir
+```
+
+#### Local Installation from folder
 
 ```bash
 cd PyIR/
 pip3 install --user .
 ```
 
-#### Global Installation
+#### Global Installation from folder
 
 ```bash
 cd PyIR/
@@ -61,7 +72,7 @@ sudo pip3 install .
 
 #### Uninstall PyIR
 ```
-pip3 uninstall pyir
+pip3 uninstall crowelab_pyir
 ```
 
 #### Potential Issues:
@@ -124,7 +135,7 @@ pyir example.fasta -d [path_to_DB]
 
 ```python
 ## Initialize PyIR and set example file for processing
-from pyir import PyIR
+from crowelab_pyir import PyIR
 FILE = 'example.fasta'
 
 pyirfiltered = PyIR(query=FILE, args=['--outfmt', 'dict', '--enable_filter'])
@@ -137,7 +148,7 @@ print(len(result))
 #### Example 2: Count the number of somatic variants per V3J clonotype in the returned results and print the top 10 results
 ```python
 ## Initialize PyIR and set example file for processing
-from pyir import PyIR
+from crowelab_pyir import PyIR
 FILE = 'example.fasta'
 
 sv = {}
@@ -157,7 +168,7 @@ for i,item in enumerate(sorted(sv.items(), key=lambda x: x[1], reverse=True)):
 #### Example 3: Process example file and return filepath
 ```python
 ## Initialize PyIR and set example file for processing
-from pyir import PyIR
+from crowelab_pyir import PyIR
 FILE = 'example.fasta'
 
 pyirfile = PyIR(query=FILE)
@@ -170,7 +181,7 @@ print(result)
 #### Example 4: Process example file in and return filepath to results in MIARR format
 ```python
 ## Initialize PyIR and set example file for processing
-from pyir import PyIR
+from crowelab_pyir import PyIR
 FILE = 'example.fasta'
 
 pyirfile = PyIR(query=FILE, args=['--outfmt', 'tsv'])
@@ -187,7 +198,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from matplotlib.pyplot import figure
 ## Initialize PyIR and set example file for processing
-from pyir import PyIR
+from crowelab_pyir import PyIR
 FILE = 'example.fasta'
 
 #create PyIR API instance and return Python dictionary
