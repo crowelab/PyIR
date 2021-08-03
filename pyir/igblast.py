@@ -76,7 +76,7 @@ class IgBlastRun():
 
         self.collected_args.append('-query')
 
-        if self.args['print_args']:
+        if self.args['debug']:
             print("running pyir with args:", ' '.join(self.collected_args + [args['query']]))
 
         self.input_type = args['input_type']
