@@ -667,11 +667,8 @@ class AirrParser():
         self.total_parsed = 0
         self.total_passed = 0
 
-        if self.args['outfmt'] == 'tsv':
-            self.outkeys = IGBLAST_TSV_HEADER[:]
-            if 'additional_field' in self.args and self.args['additional_field']:
-                self.outkeys.extend([self.args['additional_field'][0]])
-            self.outkeys.extend(['v_family', 'd_family', 'j_family', 'cdr3_aa_length'])
+        self.header_keys = []
+        self.out_keys = []
 
         if self.args['outfmt'] == 'dict':
             self.out_d = {}
@@ -685,12 +682,35 @@ class AirrParser():
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
                                    universal_newlines=True, env=dict(os.environ, IGDATA=self.args['igdata']))
         for line in process.stdout:
+            #Take line from input and split by tab
             linesplit = line.strip('\n').split('\t')
+
+            #
+            # Main parsing function
+            ########################################################
+
+            # This first check is to see if it's the first line of the file, if so we need to set up the dictionary by
+            # reading in the keys. Otherwise, we parse as expected
             if first:
+                # Parse the keys from the tsv
+                for key in linesplit:
+                    self.header_keys.append(key)
+                    self.out_keys.append(key)
+
+                # If the user has provided an additional field, add it to the keys
+                if 'additional_field' in self.args and self.args['additional_field']:
+                    self.out_keys.extend([self.args['additional_field'][0]])
+
+                # Add PyIR fields to the keys at the end
+                self.out_keys.extend(['v_family', 'd_family', 'j_family', 'cdr3_aa_length'])
+
+                if self.args['outfmt'] == 'tsv':
+                    self.out_file.write('\t'.join(self.out_keys) + '\n')
+
                 first = False
                 continue
             else:
-                d = {IGBLAST_TSV_HEADER[index]: linesplit[index] for index in range(0, len(IGBLAST_TSV_HEADER))}
+                d = {self.out_keys[index]: linesplit[index] for index in range(0, len(self.header_keys))}
 
                 should_write = True
                 if 'additional_field' in self.args and self.args['additional_field']:
@@ -699,7 +719,9 @@ class AirrParser():
                 if self.args['enable_filter']:
                     should_write = self.filters.run_filters(d)
 
-                #This is where we generate PyIR-specific values
+                #
+                # This is where we generate PyIR-specific values
+
                 d['v_family'] = d['v_call'].split(',')[0].split('*')[0]
                 d['d_family'] = d['d_call'].split(',')[0].split('*')[0]
                 d['j_family'] = d['j_call'].split(',')[0].split('*')[0]
@@ -731,11 +753,14 @@ class AirrParser():
                         else:
                             self.out_file.write(json.dumps(d) + ',\n')
                     elif self.args['outfmt'] == 'tsv':
-                        for index in range(0, len(self.outkeys)):
+                        # Okay this seems really unnecessary to vomit the info back out from the .tsv format through
+                        # a dictionary back into a .tsv format but it's helpful for standardization and the additional
+                        # fields in the code
+                        for index in range(0, len(self.out_keys)):
                             if index == 0:
-                                self.out_file.write(str(d[self.outkeys[index]]))
+                                self.out_file.write(str(d[self.out_keys[index]]))
                             else:
-                                self.out_file.write('\t' + str(d[self.outkeys[index]]))
+                                self.out_file.write('\t' + str(d[self.out_keys[index]]))
                         self.out_file.write('\n')
                     elif self.args['outfmt'] == 'dict':
                         self.out_d[d['sequence_id']] = d

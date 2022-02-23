@@ -11,7 +11,7 @@ import time
 import tqdm
 import sys
 
-IGBLAST_TSV_HEADER = ['sequence_id','sequence','locus','stop_codon','vj_in_frame','productive','rev_comp','complete_vdj','v_call','d_call','j_call','sequence_alignment','germline_alignment','sequence_alignment_aa','germline_alignment_aa','v_alignment_start','v_alignment_end','d_alignment_start','d_alignment_end','j_alignment_start','j_alignment_end','v_sequence_alignment','v_sequence_alignment_aa','v_germline_alignment','v_germline_alignment_aa','d_sequence_alignment','d_sequence_alignment_aa','d_germline_alignment','d_germline_alignment_aa','j_sequence_alignment','j_sequence_alignment_aa','j_germline_alignment','j_germline_alignment_aa','fwr1','fwr1_aa','cdr1','cdr1_aa','fwr2','fwr2_aa','cdr2','cdr2_aa','fwr3','fwr3_aa','fwr4','fwr4_aa','cdr3','cdr3_aa','junction','junction_length','junction_aa','junction_aa_length','v_score','d_score','j_score','v_cigar','d_cigar','j_cigar','v_support','d_support','j_support','v_identity','d_identity','j_identity','v_sequence_start','v_sequence_end','v_germline_start','v_germline_end','d_sequence_start','d_sequence_end','d_germline_start','d_germline_end','j_sequence_start','j_sequence_end','j_germline_start','j_germline_end','fwr1_start','fwr1_end','cdr1_start','cdr1_end','fwr2_start','fwr2_end','cdr2_start','cdr2_end','fwr3_start','fwr3_end','fwr4_start','fwr4_end','cdr3_start','cdr3_end','np1','np1_length','np2','np2_length']
+IGBLAST_TSV_HEADER = ['sequence_id','sequence','locus','stop_codon','vj_in_frame','v_frameshift','productive','rev_comp','complete_vdj','v_call','d_call','j_call','sequence_alignment','germline_alignment','sequence_alignment_aa','germline_alignment_aa','v_alignment_start','v_alignment_end','d_alignment_start','d_alignment_end','j_alignment_start','j_alignment_end','v_sequence_alignment','v_sequence_alignment_aa','v_germline_alignment','v_germline_alignment_aa','d_sequence_alignment','d_sequence_alignment_aa','d_germline_alignment','d_germline_alignment_aa','j_sequence_alignment','j_sequence_alignment_aa','j_germline_alignment','j_germline_alignment_aa','fwr1','fwr1_aa','cdr1','cdr1_aa','fwr2','fwr2_aa','cdr2','cdr2_aa','fwr3','fwr3_aa','fwr4','fwr4_aa','cdr3','cdr3_aa','junction','junction_length','junction_aa','junction_aa_length','v_score','d_score','j_score','v_cigar','d_cigar','j_cigar','v_support','d_support','j_support','v_identity','d_identity','j_identity','v_sequence_start','v_sequence_end','v_germline_start','v_germline_end','d_sequence_start','d_sequence_end','d_germline_start','d_germline_end','j_sequence_start','j_sequence_end','j_germline_start','j_germline_end','fwr1_start','fwr1_end','cdr1_start','cdr1_end','fwr2_start','fwr2_end','cdr2_start','cdr2_end','fwr3_start','fwr3_end','fwr4_start','fwr4_end','cdr3_start','cdr3_end','np1','np1_length','np2','np2_length']
 MAX_CHUNK_SIZE = 1000
 
 class PyIR():
@@ -62,6 +62,7 @@ class PyIR():
             self.output_folder = self.args['out'].rstrip('/\\') if self.args['out'] else \
                 pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"), "crowelab_pyir/data/germlines")
 
+#        self.tsv_headers = []
 
 #        IgBLAST Arguments
 #
@@ -81,11 +82,11 @@ class PyIR():
 #
         self.use_filter = self.args['enable_filter']
 
-        if self.args['outfmt'] == 'tsv':
-            self.outkeys = IGBLAST_TSV_HEADER
-            if 'additional_field' in self.args and self.args['additional_field']:
-                self.outkeys.extend([self.args['additional_field'][0]])
-            self.outkeys.extend(['v_family', 'd_family', 'j_family', 'cdr3_aa_length'])
+#        if self.args['outfmt'] == 'tsv':
+#            self.outkeys = IGBLAST_TSV_HEADER
+#            if 'additional_field' in self.args and self.args['additional_field']:
+#                self.outkeys.extend([self.args['additional_field'][0]])
+#            self.outkeys.extend(['v_family', 'd_family', 'j_family', 'cdr3_aa_length'])
 
         self.gzip_output = self.args['gzip']
         self.progress = None
@@ -306,8 +307,15 @@ class PyIR():
                 fout.seek(fout.tell()-2, 0)
                 fout.write('\n]\n')
             elif self.args['outfmt'] == 'tsv':
-                fout.write('\t'.join(self.outkeys) + '\n')
+                # For .tsv output have to manually get header/keys from an output file.
+                # In this case we just use whatever the first output is
+                with open(list_of_files[0], 'r') as fin:
+                    outkeys = fin.readline().strip()
+
+                fout.write(outkeys + '\n')
                 for f in list_of_files:
                     with open(f, 'r') as filein:
+                        # Skip the header line
+                        filein.readline()
                         for line in filein:
                             fout.write(line)
