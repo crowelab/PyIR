@@ -75,26 +75,7 @@ sudo pip3 install .
 pip3 uninstall crowelab_pyir
 ```
 
-#### Potential Issues:
-##### 1. Can't find pyir executable
-Locate your local bin folder with PyIR and add it to your PATH variable. ~/.local/bin and /usr/local/bin are good places
-to start. If using scl or other virtual environments (such as conda) be sure to account for those when searching your 
-directories.
-
-##### 2. Error with IgBLAST executable
-Double-check that you've met all prerequisites to install IgBLAST, including GLIBC > 2.14 (which has caused issues 
-with CentOS 6) and libuv (can be installed with "sudo apt install libuv1.dev")
-
-##### 3. Installed correctly but packages are missing
-Ensure that the version of pip used to install pyir is associated with the correct version of python you are 
-attempting to run. This can also be an issue with virtual environments.
-
-
-## Install With Virtual Box (Ubuntu)
-
-Instructions for installing PyIR with a VirtualBox container can be found [in the wiki](https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox)
-
-## Database Setup
+### 3. Database Setup
 
 PyIR requires a set of BLAST germline databases to assign the VDJ germlines.
 
@@ -114,6 +95,26 @@ pyir setup -o path/
 #Builds databases in global pyir library directory (use if installed with sudo pip3)
 sudo pyir setup
 ```
+
+
+#### Potential Issues:
+##### 1. Can't find pyir executable
+Locate your local bin folder with PyIR and add it to your PATH variable. ~/.local/bin and /usr/local/bin are good places
+to start. If using scl or other virtual environments (such as conda) be sure to account for those when searching your 
+directories.
+
+##### 2. Error with IgBLAST executable
+Double-check that you've met all prerequisites to install IgBLAST, including GLIBC > 2.14 (which has caused issues 
+with CentOS 6) and libuv (can be installed with "sudo apt install libuv1.dev")
+
+##### 3. Installed correctly but packages are missing
+Ensure that the version of pip used to install pyir is associated with the correct version of python you are 
+attempting to run. This can also be an issue with virtual environments.
+
+
+## Install With Virtual Box (Ubuntu)
+
+Instructions for installing PyIR with a VirtualBox container can be found [in the wiki](https://github.com/crowelab/PyIR/wiki/Installing-PyIR-in-VirtualBox)
 
 ## Examples
 
