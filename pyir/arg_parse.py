@@ -238,6 +238,14 @@ class PyIrArgumentParser():
         )
 
         blast_arguments.add_argument(
+            '--germlineC',
+            type=str,
+            dest='germlineC',
+            help='Path to germline_db_C database for IgBLAST. Default value is derived from the IGDATA environment '
+                 'variable.'
+        )
+
+        blast_arguments.add_argument(
             "-nV",
             "--numV",
             dest='num_V_alignments',
@@ -543,6 +551,8 @@ class PyIrArgumentParser():
                 args.germlineD = os.path.join(pathbase, args.species + '_' + suffix + '_D')
             if not args.germlineJ:
                 args.germlineJ = os.path.join(pathbase, args.species + '_' + suffix + '_J')
+            if not args.germlineC:
+                args.germlineC = os.path.join(pathbase, args.species + '_' + suffix + '_C')
         else:
             pathbase = os.path.join(args.igdata, 'prot', args.species)
             if not args.germlineV:

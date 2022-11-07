@@ -60,7 +60,7 @@ class IgBlastRun():
                                         args['num_J_alignments'], '-auxiliary_data',
                                         os.path.join(args['aux'], args['species'] + '_gl.aux'), '-germline_db_D',
                                         args['germlineD'], '-germline_db_J', args['germlineJ'], '-min_D_match',
-                                        args['minD'], '-show_translation'])
+                                        args['minD'], '-c_region_db', args['germlineC'], '-show_translation'])
 
         if args['word_size']:
             self.collected_args.extend(['-word_size', args['word_size']])

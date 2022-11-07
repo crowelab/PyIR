@@ -5,3 +5,5 @@ pyir.egg-info/
 testing/*.json*
 _config.yml
 dist/
+pyir/data/germlines/Ig/*
+pyir/data/germlines/TCR/*

@@ -155,10 +155,19 @@ class VDJSummaryParser(BaseParser):
                         if hit['gene'] == value:
                             out_d['Top J gene e_value'] = hit['e_value']
                             break
+                elif stripped_key == 'Top C gene match':
+                    self.set_family('C family', value, out_d)
+                    for hit in out_d['Hits']:
+                        if hit['gene'] == value:
+                            out_d['Top C gene e_value'] = hit['e_value']
+                            break
 
             if 'Top D gene match' not in out_d:
                 out_d['Top D gene match'] = 'N/A'
                 out_d['Top D gene e_value'] = 'N/A'
+            if 'Top C gene match' not in out_d:
+                out_d['Top C gene match'] = 'N/A'
+                out_d['Top C gene e_value'] = 'N/A'
             self.triggered = False
             return out_d
 
@@ -702,7 +711,7 @@ class AirrParser():
                     self.out_keys.extend([self.args['additional_field'][0]])
 
                 # Add PyIR fields to the keys at the end
-                self.out_keys.extend(['v_family', 'd_family', 'j_family', 'cdr3_aa_length'])
+                self.out_keys.extend(['v_family', 'd_family', 'j_family', 'c_family', 'cdr3_aa_length'])
 
                 if self.args['outfmt'] == 'tsv':
                     self.out_file.write('\t'.join(self.out_keys) + '\n')
@@ -725,6 +734,7 @@ class AirrParser():
                 d['v_family'] = d['v_call'].split(',')[0].split('*')[0]
                 d['d_family'] = d['d_call'].split(',')[0].split('*')[0]
                 d['j_family'] = d['j_call'].split(',')[0].split('*')[0]
+                d['c_family'] = d['c_call'].split(',')[0].split('*')[0]
                 d['cdr3_aa_length'] = len(d['cdr3_aa'])
 
                 # FR4 check
