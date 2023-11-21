@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='crowelab_pyir',
-    version='1.6.0',
+    version='1.6.1',
     description='',
     license='Creative Commons Attribution 4.0',
     author='Sam Day, Andre Branchizio, Jordan Willis, Jessica Finn, Taylor Jones, Sam Schmitz, Luke Myers',
