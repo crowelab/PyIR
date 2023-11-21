@@ -37,84 +37,84 @@ esac
 # GRAB FILES FROM IMGT SERVER #
 ###############################
 cd $MAIN/IMGT/human
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGHV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGHD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGHJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGKV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGLV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGKJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGLJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRAV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRAJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRBV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRBJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRBD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGHV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGHD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGHJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGKV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGLV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGKJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/IG/IGLJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRAV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRAJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRBV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRBJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Homo_sapiens/TR/TRBD.fasta
 
 cd ../mouse
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGHV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGHD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGHJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGKV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGLV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGKJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGLJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRAJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRAV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRBD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRBJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRBV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRDD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRDJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRDV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRGJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRGV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGHV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGHD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGHJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGKV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGLV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGKJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/IG/IGLJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRAJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRAV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRBD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRBJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRBV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRDD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRDJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRDV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRGJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Mus_musculus/TR/TRGV.fasta
 
 cd ../rabbit
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGHV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGHD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGHJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGKV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGLV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGKJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGLJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRAJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRAV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRBD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRBJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRBV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRDD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRDJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRDV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRGJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRGV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGHV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGHD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGHJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGKV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGLV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGKJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/IG/IGLJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRAJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRAV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRBD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRBJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRBV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRDD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRDJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRDV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRGJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Oryctolagus_cuniculus/TR/TRGV.fasta
 
 cd ../rat
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGHV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGHD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGHJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGKV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGLV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGKJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGLJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGHV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGHD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGHJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGKV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGLV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGKJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Rattus_norvegicus/IG/IGLJ.fasta
 
 cd ../rhesus_monkey
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGHV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGHD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGHJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGKV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGLV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGKJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGLJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRAJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRAV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRBD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRBJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRBV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRDD.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRDJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRDV.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRGJ.fasta
-wget -A fasta -r -l 1 -nd http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRGV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGHV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGHD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGHJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGKV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGLV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGKJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/IG/IGLJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRAJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRAV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRBD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRBJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRBV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRDD.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRDJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRDV.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRGJ.fasta
+wget -A fasta -r -l 1 -nd https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/Macaca_mulatta/TR/TRGV.fasta
 
 cd ../../
 

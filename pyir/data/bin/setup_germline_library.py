@@ -120,7 +120,8 @@ def get_local_data():
     print(result.stdout)
 
     try:
-        os.remove(path.join(args.outdir, 'prot'))
+        # os.remove(path.join(args.outdir, 'prot'))
+        shutil.rmtree(path.join(args.outdir, 'prot'))
     except FileNotFoundError:
         pass
     shutil.copytree(path.join(args.basedir,'crowelab_data','prot'), path.join(args.outdir, 'prot'))
@@ -142,7 +143,7 @@ def get_imgt_data():
                 gene_db = path.join(path.dirname(gene_file), path.basename(gene_file).split('.')[0])
                 with open(gene_file, 'w') as fasta_out:
                     for locus in species[gene_locus][gene]:
-                        locus_url = 'http://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/' + \
+                        locus_url = 'https://www.imgt.org/download/V-QUEST/IMGT_V-QUEST_reference_directory/' + \
                                     species['imgt_name'] + '/' + locus_url_ext + '/' + locus + '.fasta'
                         print('Downloading from:', locus_url)
                         write_out = False
