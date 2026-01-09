@@ -1,5 +1,5 @@
 build/
-pyir.egg-info/
+crowelab_pyir.egg-info/
 *.pyc
 .DS_Store
 testing/*.json*
