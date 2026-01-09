@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crowelab_pyir"
+version = "1.6.3"
+description = "An IgBLAST wrapper and parser"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "Creative Commons Attribution 4.0"}
+authors = [
+    {name = "Sam Day", email = "samuel.day@vumc.org"},
+    {name = "Andre Branchizio", email = "andrejbranch@gmail.com"},
+    {name = "Jordan Willis", email = "jwillis0720@gmail.com"},
+    {name = "Jessica Finn", email = "strnad.bird@gmail.com"},
+    {name = "Taylor Jones"},
+    {name = "Sam Schmitz"},
+    {name = "Luke Myers"},
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Environment :: Console",
+    "Environment :: MacOS X",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "License :: Other/Proprietary License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "tqdm",
+    "importlib_resources>=1.3.0; python_version < '3.9'",
+]
+
+
+[tool.setuptools]
+packages = ["crowelab_pyir"]
+package-dir = {"crowelab_pyir" = "pyir"}
+include-package-data = true
+script-files = ["bin/pyir"]
+
+[tool.setuptools.package-data]
+crowelab_pyir = [
+    "data/*",
+    "data/bin/*",
+    "data/crowelab_data/*",
+    "data/crowelab_data/*/*",
+    "data/crowelab_data/*/*/*",
+    "data/germlines/aux_data/*",
+    "data/germlines/internal_data/*",
+    "data/germlines/internal_data/*/*",
+]
