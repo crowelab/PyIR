@@ -1,6 +1,6 @@
 import functools
 import multiprocessing
-import pkg_resources
+from .resource_utils import get_data_path
 import os
 from . import arg_parse, igblast
 import shutil
@@ -60,7 +60,7 @@ class PyIR():
                 self.output_file += '.tsv'
         else:
             self.output_folder = self.args['out'].rstrip('/\\') if self.args['out'] else \
-                pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"), "crowelab_pyir/data/germlines")
+                get_data_path("germlines")
 
 #        self.tsv_headers = []
 
@@ -92,13 +92,12 @@ class PyIR():
         self.progress = None
 
     def run_setup(self):
-        if not os.path.exists(
-                pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"), "crowelab_pyir/data/bin")):
+        if not os.path.exists(get_data_path("bin")):
             raise FileNotFoundError("Missing package bin directory -- was PyIR installed correctly?")
 
-        baseArgs = [sys.executable, pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"),
-                                                    "crowelab_pyir/data/bin/setup_germline_library.py"),
-                    pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"), "crowelab_pyir/data"),
+        baseArgs = [sys.executable,
+                    get_data_path("bin/setup_germline_library.py"),
+                    get_data_path(),
                     self.output_folder]
 
         subprocess.run(baseArgs)

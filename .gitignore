@@ -1,6 +1,8 @@
 build/
 crowelab_pyir.egg-info/
 *.pyc
+*.venv
+*.idea
 .DS_Store
 testing/*.json*
 _config.yml

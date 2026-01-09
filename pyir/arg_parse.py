@@ -3,9 +3,9 @@ import argparse
 import multiprocessing
 import sys
 import os
-import pkg_resources
 import subprocess
 import tempfile
+from .resource_utils import get_data_path
 
 
 class PyIrArgumentParser():
@@ -478,8 +478,8 @@ class PyIrArgumentParser():
 
     @staticmethod
     def _get_igdata_dir():
-        if os.path.exists(pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab_pyir"), "crowelab_pyir/data/germlines")):
-            return pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab-pyir"), "crowelab_pyir/data/germlines")
+        if os.path.exists(get_data_path("germlines")):
+            return get_data_path("germlines")
         elif 'IGDATA' in os.environ:
             return os.environ['IGDATA']
         else:
@@ -497,7 +497,7 @@ class PyIrArgumentParser():
 
     def get_igblast(self, sequence_type):
         """Checks that the given IGBlast executable exists"""
-        igblast_dir = pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab-pyir"), "crowelab_pyir/data/bin")
+        igblast_dir = get_data_path("bin")
         if 'linux' in sys.platform:
             if sequence_type == 'nucl':
                 return self.test_igblast(os.path.join(igblast_dir,'igblastn_linux'))
@@ -520,13 +520,10 @@ class PyIrArgumentParser():
     def _get_aux_dir():
         """Checks that the given PyIR aux_data directory exists"""
         if not os.path.exists(
-                pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab-pyir"),
-                                                "crowelab_pyir/data/germlines/aux_data")):
-            raise ValueError("No aux directory found:", pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab-pyir"),
-                                                "crowelab_pyir/data/germlines/aux_data"))
+                get_data_path("germlines/aux_data")):
+            raise ValueError("No aux directory found:", get_data_path("germlines/aux_data"))
         else:
-            return pkg_resources.resource_filename(pkg_resources.Requirement.parse("crowelab-pyir"),
-                                                   "crowelab_pyir/data/germlines/aux_data")
+            return get_data_path("germlines/aux_data")
 
     @staticmethod
     def _check_bool(val):
