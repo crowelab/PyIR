@@ -51,7 +51,7 @@ class QueryParser(BaseParser):
     def __init__(self, seq_dict):
         # self.args = args
         self.required = True
-        self.regex = re.compile('^Query= ((\S| )*)')
+        self.regex = re.compile(r'^Query= ((\S| )*)')
         self.seq_dict = seq_dict
 
     def parse(self, line, out_d):
@@ -79,10 +79,10 @@ class SignificantAlignmentParser(BaseParser):
     This parser is responsible for the 'Hits' field along with its' subfields"""
     def __init__(self):
         self.required = True
-        self.failure_regex = re.compile('^.+No hits found.+$')
-        self.trigger_regex = re.compile('^Sequences producing significant alignments')
-        self.hit_regex = re.compile('(.*?)[ ]+([0-9.\-e]+)[ ]+([0-9.\-e]+)')
-        self.halt_regex = re.compile('^Domain classification requested')
+        self.failure_regex = re.compile(r'^.+No hits found.+$')
+        self.trigger_regex = re.compile(r'^Sequences producing significant alignments')
+        self.hit_regex = re.compile(r'(.*?)[ ]+([0-9.\-e]+)[ ]+([0-9.\-e]+)')
+        self.halt_regex = re.compile(r'^Domain classification requested')
         self.hits = []
         self.triggered = False
 
@@ -123,7 +123,7 @@ class VDJSummaryParser(BaseParser):
     'V family', 'J family', 'D family', 'Top V gene e_value', 'Top D gene e_value', and 'Top J gene e_value'
     fields as well as overall informational fields 'Chain type', 'stop codon', 'V-J frame', and 'Strand'"""
     def __init__(self):
-        self.regex = re.compile('^V-\(D\)-J rearrangement summary for query sequence \((.*)\)\.')
+        self.regex = re.compile(r'^V-\(D\)-J rearrangement summary for query sequence \((.*)\)\.')
         self.required = True
         self.triggered = False
         self.fields = None
@@ -196,7 +196,7 @@ class SubRegionParser(BaseParser):
     'V family', 'J family', 'D family', 'Top V gene e_value', 'Top D gene e_value', and 'Top J gene e_value'
     fields"""
     def __init__(self):
-        self.regex = re.compile('^Sub-region sequence details \((.*)\)')
+        self.regex = re.compile(r'^Sub-region sequence details \((.*)\)')
         self.required = False
         self.triggered = False
         self.fields = None
@@ -227,9 +227,9 @@ class AlignmentSummaryParser(BaseParser):
         This parser is responsible for the alignment summary table fields from IgBlast, which can include:
         'FR1', 'FR2', 'FR3', 'FR4', 'CDR1', 'CDR2', 'CDR3', and 'Total' fields."""
     def __init__(self):
-        self.regex = re.compile('^Alignment summary between query and top germline V gene hit \((.*)\)')
+        self.regex = re.compile(r'^Alignment summary between query and top germline V gene hit \((.*)\)')
         self.required = True
-        self.alignment_type_regex = re.compile('(\w*)-IMGT')
+        self.alignment_type_regex = re.compile(r'(\w*)-IMGT')
         self.triggered = False
         self.frameworks_found = []
 
@@ -287,9 +287,9 @@ class AlignmentLine():
         self.is_header = False
         self.is_translation = False
         self.appended_count = 0
-        self.hit_regex = re.compile('([VDJ])\s+(\S*)\s+(\S*)\s+(\S*)\s+([0-9]+)\s+(\S*)\s+([0-9]+)')
-        self.query_regex = re.compile('(\S*Query\S*)\s+([0-9]+)\s+(\S*)\s+([0-9]+)')
-        self.header_regex = re.compile('[<\->]')
+        self.hit_regex = re.compile(r'([VDJ])\s+(\S*)\s+(\S*)\s+(\S*)\s+([0-9]+)\s+(\S*)\s+([0-9]+)')
+        self.query_regex = re.compile(r'(\S*Query\S*)\s+([0-9]+)\s+(\S*)\s+([0-9]+)')
+        self.header_regex = re.compile(r'[<\->]')
         self.read_line(line)
 
     def read_line(self, line):
@@ -348,9 +348,9 @@ class AlignmentParser(BaseParser):
         This parser is responsible for the 'Alignments' field as well as the 'NT', 'sequence_aa', and 'AA_Length' fields in
         'CDR1', 'CDR2', 'CDR3', 'FR1', 'FR2', 'FR3', and 'FR4'"""
     def __init__(self, input_type, seqs_dict):
-        self.trigger_regex = re.compile('^Alignments')
-        self.halt_regex = re.compile('^Lambda')
-        self.alignments_regex = re.compile('(<[-\w]*>)')
+        self.trigger_regex = re.compile(r'^Alignments')
+        self.halt_regex = re.compile(r'^Lambda')
+        self.alignments_regex = re.compile(r'(<[-\w]*>)')
         self.required = True
         self.alignments = []
         self.alignment_span = None
@@ -585,7 +585,7 @@ class LegacyParser():
 
         self.total_parsed = 0
         self.total_passed = 0
-        self.end_regex = re.compile('^Effective search space used:.*$')
+        self.end_regex = re.compile(r'^Effective search space used:.*$')
 
         # The parsers must be initialized in order of appearance in BLAST output for PyIR to work
         self.parsers = [
